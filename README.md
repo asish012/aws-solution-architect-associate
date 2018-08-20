@@ -1,1 +1,0 @@
-# aws-solution-architect-associate
