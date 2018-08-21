@@ -6,7 +6,7 @@
 - Edge location
     - For caching
 
-All the AWS services sits on top of AWS global infrastructure.
+* All the AWS services sits on top of AWS global infrastructure.
 
 <!-- Set 1 -->
 ### AWS services: Compute ###
