@@ -56,7 +56,7 @@
 
 <!-- Set 2 -->
 ### AWS services: Management Tools ###
-- CloudWatch: Monitoring tool.
+- CloudWatch: Monitoring tool. It monitors operational and performance metrics for your AWS cloud resources and applications. And can notify using SNS.
 - CloudFormation: (IMPORTANT): Way of scripting infrastructure architecture. Deploying zoomla/wordpress/sharepoint sites becomes easy.
 - CloudTrail: (IMPORTANT): Logs all your activities in AWS environment. Turned-on by default and keeps logs for 1 week.
 - Config: (IMPORTANT): Monitor your entire AWS environment.

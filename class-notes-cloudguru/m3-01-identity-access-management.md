@@ -1,5 +1,6 @@
 ### What is IAM? ###
 IAM allows you to manage users and their level of access to the AWS Console.
+IAM doesn't have a region, its Global. All your created Users, Groups, Roles, Policies and other components of IAM are available globally.
 
 ### What does IAM proved? ###
 - Centralized control of your AWS account.
@@ -45,3 +46,14 @@ IAM doesn't have a region, its Global. All your created Users, Groups, Roles, Po
         - What is it for? (Allows EC2 instances to call AWS services on your behalf),
         - and What AWS service will it access? (S3 full access)
     2. Create an EC2 instance and assign him the role we just created.
+
+### Summary ###
+- IAM doesn't have a region, its Global. All your created Users, Groups, Roles, Policies and other components of IAM are available globally.
+- The "root" account is simply the account created when first setup your AWS account. It has complete admin access.
+- New Users have NO permissions when first created.
+- New Users are assigned Access Key ID & Secret Access Keys when first created.
+- These are not the same as a password, and you cannot use the Access Key ID & Secret Access Key to login in to the console. You can use this to access AWS via the APIs and Command Line. To access the AWS Console you have to use the user and the password.
+- You only get to view these once. If you lose them, you have to regenerate them. So better save them.
+- Multi-factor Authentication on your root account is a must.
+- You can create and customise your own password policy and password rotation policy (expire in X days).
+* Power Users cannot manage groups and users within IAM. Power User have access to all AWS services except for management of groups and users within IAM.
