@@ -30,3 +30,18 @@ IAM doesn't have a region, its Global. All your created Users, Groups, Roles, Po
 - You can also add permissions to a particular user directly instead of via assigning him in a group and giving permission to the group.
 - You can specifically Activate/Deactivate users programmatic access rights (Access key ID & Secret access key).
 - You can also make change of your IAM password policy (e.g. password strength, expiration etc)
+
+* IAM roles: IAM roles are a secure way to grant permissions to entities that you trust.
+
+    Examples of entities:
+    - IAM user in another account.
+    - Application code running on an EC2 instance that needs to perform actions on AWS resources.
+    - An AWS service that needs to act on resources in your account to provide its features.
+    - Users from a corporate directory who use identity federation with SAML.
+
+    We are planning to create an EC2 instance which will store data directly to S3 buckets.
+    1. Create a role which will have full access to write to S3 bucket. While creating a Role we need to tell:
+        - Whom is it for? (EC2),
+        - What is it for? (Allows EC2 instances to call AWS services on your behalf),
+        - and What AWS service will it access? (S3 full access)
+    2. Create an EC2 instance and assign him the role we just created.
