@@ -18,5 +18,15 @@ IAM allows you to manage users and their level of access to the AWS Console.
 - Role: Roles are assigned to AWS resources. e.g. your EC2 instance might be assigned a role to get access to your S3 instance to write files directly (no need to set up username password for that EC2 instance)
 - Policy: A document that defines one or more permissions. You can assign a policy to a User or a Group or a Role.
 
-## LAB 1: Identity Access Management ##
+### LAB 1: Identity Access Management ###
+IAM doesn't have a region, its Global. All your created Users, Groups, Roles, Policies and other components of IAM are available globally.
 
+- Activate Multi-Factor-Authentication on your root account:
+    - Your root account is the account associated with your email id in AWS.
+    - Authenticate using Google-Authenticator on your Android device.
+- Create some Users and Groups and assign those users into some Groups.
+    - Once Users are created and assigned to some Groups, you will be able to see every user has been assigned a "Access key ID" and a "Secret access key". This key is used when the user wants to connect to AWS services programmatically (e.g. terminal of your laptop).
+    - Every user will also be assigned a username and a password, which will be used when the user wants to login to the AWS Console.
+- You can also add permissions to a particular user directly instead of via assigning him in a group and giving permission to the group.
+- You can specifically Activate/Deactivate users programmatic access rights (Access key ID & Secret access key).
+- You can also make change of your IAM password policy (e.g. password strength, expiration etc)
