@@ -1,4 +1,4 @@
-<!-- AWS global infrastructure -->
+### AWS global infrastructure ###
 - Geographical regions
     - London, Berlin, NY, CA, ... ...
 - Availability zone inside each region
@@ -8,7 +8,7 @@
 
 All the AWS services sits on top of AWS global infrastructure.
 
-<!-- AWS services: Compute -->
+### AWS services: Compute ###
 - EC2: Elastic Compute Cloud:
 - EC2 Container Service:
     Runs docker containers.
@@ -19,7 +19,7 @@ All the AWS services sits on top of AWS global infrastructure.
 - Lightsail:
 - Batch: (no exam questions)
 
-<!-- AWS services: Storage -->
+### AWS services: Storage ###
 - S3:
     Object based storage. Upload data into buckets.
 - EFS:
@@ -31,13 +31,13 @@ All the AWS services sits on top of AWS global infrastructure.
 - Storage Gateway:
     VMs in data-centers that replicates data into S3
 
-<!-- AWS services: Databases -->
+### AWS services: Databases ###
 - RDS: Relational database service
 - DynamoDB: Non-relational db
 - Elasticache: Query from db and cache
 - Red Shift: Built for data warehousing
 
-<!-- AWS services: Migration-->
+### AWS services: Migration ###
 - AWS Migration Hub:
     Tracking service during migration to AWS from private server and integrate with other AWS services.
     Visualize the migration process and progress
@@ -49,14 +49,14 @@ All the AWS services sits on top of AWS global infrastructure.
     It works as database service and also as migration service.
     Migrates large amount of data into AWS
 
-<!-- AWS services: Networking and Content Delivery -->
+### AWS services: Networking and Content Delivery ###
 - VPC: (IMPORTANT): Virtual data center. You can configure firewalls, availability zone, network side address ranges, network route table etc...
 - CloudFront: Content delivery network.
 - Route53: DNS Service.
 - API Gateway: (IMPORTANT): Create your own API for your other services.
 - Direct Connect: (IMPORTANT): Directly connect your corporate network to AWS and directly connect to your VPC.
 
-<!-- AWS services: Developer Tools-->
+### AWS services: Developer Tools ###
 <!-- Not very important for architect exam, but very important for developing -->
 - CodeStar: Code management/project management/collaboration tool tool, includes contentious integration tools
 - CodeCommit: Source control (store your source), store your own private git repository within codecommit.
@@ -66,7 +66,7 @@ All the AWS services sits on top of AWS global infrastructure.
 - X-Ray: To debug and analyze your application, including requests tracing.
 - Cloud9: IDE to write your code.
 
-<!-- AWS services: -->
-<!-- AWS services: -->
-<!-- AWS services: -->
-<!-- AWS services: -->
+### AWS services: ###
+### AWS services: ###
+### AWS services: ###
+### AWS services: ###
