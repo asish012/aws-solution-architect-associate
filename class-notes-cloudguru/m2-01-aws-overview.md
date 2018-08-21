@@ -12,7 +12,7 @@
 ### AWS services: Compute ###
 - EC2: Elastic Compute Cloud:
 - EC2 Container Service: Runs docker containers.
-- Elastic Beanstalk: (more important for developers and sysadmins)
+- Elastic Beanstalk: (more important for developers and sysadmins): Run code on an infrastructure that is automatically provisioned to host that code.
 - Lambda: Upload your code and control when it executes. Your lambda function will execute based on some events.
 - Lightsail:
 - Batch: (no exam questions)
@@ -40,7 +40,7 @@
 ### AWS services: Networking and Content Delivery ###
 - VPC: (IMPORTANT): Virtual data center. You can configure firewalls, availability zone, network side address ranges, network route table etc...
 - CloudFront: Content delivery network.
-- Route53: DNS Service.
+- Route53: highly scalable DNS service
 - API Gateway: (IMPORTANT): Create your own API for your other services.
 - Direct Connect: (IMPORTANT): Directly connect your corporate network to AWS and directly connect to your VPC.
 
@@ -93,7 +93,7 @@
 - EMR (Elastic MapReduce) (IMPORTANT): Processing BigData.
 - CloudSearch:
 - ElasticSearch:
-- Kinesis: (IMPORTANT): Injecting big data into AWS environment.
+- Kinesis: (IMPORTANT): Injecting big data into AWS environment. Used for collating large amounts of data streamed from multiple sources.
 - Kinesis Video Streams:
 - QuickSight: (no exam question): BI tool.
 - Data Pipeline (IMPORTANT):
