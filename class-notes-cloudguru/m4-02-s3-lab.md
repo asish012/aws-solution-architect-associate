@@ -44,3 +44,13 @@
     - Permanently delete and object version.
 
 
+### S3 Cross Region Replication ###
+- Versioning must be enabled to your source and destination bucket.
+- Regions must be different. You can't replicate bucket within the same region. You can do it with copy command from terminal.
+- Files in an existing bucket are not replicated automatically. Only subsequent updated files are replicated automatically.
+- Existing objects from source bucket needs to be copied to the destination bucket manually:
+    > ``` aws s3 cp --recursive s3://source-bucket s3://destination-bucket ```
+- Manually copied files dont carry version history.
+- You can't replicate to multiple buckets or use daisy chaining (need to check latest status).
+- Deleting files are replicated.
+- Deleting individual version or delete markers from history will not be replicated.
