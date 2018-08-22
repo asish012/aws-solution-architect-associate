@@ -52,8 +52,8 @@ IAM doesn't have a region, its Global. All your created Users, Groups, Roles, Po
 - The "root" account is simply the account created when first setup your AWS account. It has complete admin access.
 - New Users have NO permissions when first created.
 - New Users are assigned Access Key ID & Secret Access Keys when first created.
-- These are not the same as a password, and you cannot use the Access Key ID & Secret Access Key to login in to the console. You can use this to access AWS via the APIs and Command Line. To access the AWS Console you have to use the user and the password.
+- These are not the same as a username-password, and you cannot use the Access Key ID & Secret Access Key to login in to the console. You can use this to access AWS via the APIs and Command Line. In order to access the AWS Console you have to use the user and the password.
 - You only get to view these once. If you lose them, you have to regenerate them. So better save them.
 - Multi-factor Authentication on your root account is a must.
-- You can create and customise your own password policy and password rotation policy (expire in X days).
+- You can create and customize your own password policy and password rotation policy (expire in X days).
 * Power Users cannot manage groups and users within IAM. Power User have access to all AWS services except for management of groups and users within IAM.
