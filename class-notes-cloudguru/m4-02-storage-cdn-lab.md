@@ -54,3 +54,5 @@
 - You can't replicate to multiple buckets or use daisy chaining (need to check latest status).
 - Deleting files are replicated.
 - Deleting individual version or delete markers from history will not be replicated.
+
+### S3 Lifecycle Management & Glacier ###
