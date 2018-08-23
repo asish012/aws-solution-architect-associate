@@ -49,10 +49,55 @@
 - Regions must be different. You can't replicate bucket within the same region. You can do it with copy command from terminal.
 - Files in an existing bucket are not replicated automatically. Only subsequent updated files are replicated automatically.
 - Existing objects from source bucket needs to be copied to the destination bucket manually:
-    > ``` aws s3 cp --recursive s3://source-bucket s3://destination-bucket ```
+    > ` aws s3 cp --recursive s3://source-bucket s3://destination-bucket `
 - Manually copied files dont carry version history.
 - You can't replicate to multiple buckets or use daisy chaining (need to check latest status).
 - Deleting files are replicated.
 - Deleting individual version or delete markers from history will not be replicated.
 
+
 ### S3 Lifecycle Management & Glacier ###
+- You can move your S3 buckets objects from one tire to another after certain time. e.g. From Standard to Standard-IA after X days and later move to Glacier after X days.
+- It can be used with or without versioning enabled.
+- It can be applied to current and previous versions.
+- You can also permanently delete objects using Lifecycle management rules.
+
+
+### CloudFront CDN ###
+- We can create 2 types of distribution.
+    - Web: Static and dynamic website (html, css, php, graphics, ...)
+    - RTMP: Streaming media files using Adobe Flash Media Server's RTMP protocol.
+
+**Create Web Distribution**
+- Origin Domain Name: Your S3 bucket | Elastic Load Balancers | MediaPackage | MediaStore containers
+- Origin Path: Folder within S3. You can specify multiple origins in a single distribution. And you can make a Folder of S3 bucket as origin path.
+- Origin ID: This value lets you distinguish multiple origins in the same distribution from one another.
+- Restrict Bucket Access: Restrict direct/public access of files within S3 bucket and only allow access via CDN.
+- Origin Access Identity:
+- ...
+- Path pattern: You may want to specify certain file extensions coming from certain folders, and you can specify those rules here as regex.
+- Viewer Protocol Policy: HTTP and HTTPS | Redirect HTTP to HTTPS | HTTPS only
+- Allowed HTTP methods: "GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE
+". If you select this option then user uploaded stuffs will first land to an edge location then copied to the source bucket.
+- ...
+- TTL:
+    - Min
+    - Max
+    - Default (24 hrs)
+- Restrict Viewer Access: Only signed URLs or signed cookies will have access.
+- ...
+- Price Class:
+- Alternate Domain Names (CNAMEs):
+- SSL Certificate:
+- ...
+- Default Root Object:
+- Logging:
+- ...
+- ...
+
+*Once the distribution is created the files stored in our S3 bucket will be accessible using the Origin ID link* :
+- S3 bucket link: https://s3.eu-central-1.amazonaws.com/bucket-101/thirdtest.txt
+- Origin ID link: http://bucket-101.s3.amazonaws.com/thirdtest.txt
+
+* If we want to add multiple origins to the CloudFront that we just created, we'd have to select the CloudFront and go to Origins tab and add other origins (e.g. other S3 bucket)
+* To remove files from edge location you have to add Invalidations rules to the distribution (costs applicable).
