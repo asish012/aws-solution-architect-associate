@@ -53,34 +53,35 @@ Using CloudFront Edge Network it accelerates your uploads to S3. Instead of uplo
 
 
 ### Summary: Chapter 4 ###
-- S3 is Object based storage. Only for flat files not for OS/VM.
-- File size can be from 0 Bytes to 5TB.
-- On successful upload to S3 you get HTTP 200
-- S3 is universal namespace, so must be unique globally.
-- Example: `https://s3-<region>.amazonaws.com/<bucket-name>`
-- Consistency model:
-    - Upload: Read after Write
-    - Update/Delete: Eventual consistency
-- Storage tiers:
-    - S3 Standard
-    - S3-IA
-    - S3 One Zone - IA
-    - Glacier
-        - Expedited
-        - Standard
-        - Bulk
-- Fundamentals:
-    - Key (name)
-    - Value (data)
-    - Version ID
-    - Metadata
-    - Access Control List
-- Versioning (pay for each version as all versions are stored as well)
-- Once versioning is enabled, you cant disable it. only can suspend it.
-- Lifecycle rules.
-- Can apply MFA for version setup and delete capability.
-- Cross Region Replication (requires versioning)
-- Lifecycle management
+- S3
+    - is Object based storage. Only for flat files not for OS/VM.
+    - File size can be from 0 Bytes to 5TB.
+    - On successful upload to S3 you get HTTP 200
+    - S3 is universal namespace, so must be unique globally.
+    - Example: `https://s3-<region>.amazonaws.com/<bucket-name>`
+    - Consistency model:
+        - Upload: Read after Write
+        - Update/Delete: Eventual consistency
+    - Storage tiers:
+        - S3 Standard
+        - S3-IA
+        - S3 One Zone - IA
+        - Glacier
+            - Expedited
+            - Standard
+            - Bulk
+    - Fundamentals:
+        - Key (name)
+        - Value (data)
+        - Version ID
+        - Metadata
+        - Access Control List
+    - Versioning (pay for each version as all versions are stored as well)
+        - Once versioning is enabled, you cant disable it. only can suspend it.
+    - Lifecycle rules.
+    - Can apply MFA for version setup and delete capability.
+    - Cross Region Replication (requires versioning)
+    - Lifecycle management
 - CloudFront
     - Edge Location (also can write to edge location)
     - Origin (can have multiple origin)
