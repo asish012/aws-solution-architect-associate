@@ -6,8 +6,8 @@
 * Four types of Storage Gateways:
     - File gateway (NFS): To store Flat files (word, pdf, pictures, videos, ...)
     - Volumes Gateway (iSCSI): Blob based storage (to run OS, vm, virtual hdd, ... )
-        - Stored volume: entire data stored on-premise.
-        - Cached volume: recently used data will be on on-premise and rest will be backed off into amazon.
+        - Stored Volume: entire data stored on-premise.
+        - Cached Volume: recently used data will be on on-premise and rest will be backed off into amazon.
     - Tape Gateway (VTL): backup and archiving solution. uses virtual-tapes.
 
     * Old names (there were only 3):

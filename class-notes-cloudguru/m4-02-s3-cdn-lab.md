@@ -18,7 +18,7 @@
 - You can specify following properties of a object inside a bucket:
     - Access control.
     - Private or public access url.
-    - Storage class/tier (Standard, IA, 1 Zone IA, etc).
+    - Storage class/tier (Standard, Standard-IA, 1 Zone IA, Glacier).
     - Encryption.
     - Metadata
     - Tags (Object level Tag, etc): Bucket tags are not inherited to objects inside the bucket.
@@ -53,7 +53,7 @@
 - Manually copied files dont carry version history.
 - You can't replicate to multiple buckets or use daisy chaining (need to check latest status).
 - Deleting files are replicated.
-- Deleting individual version or delete markers from history will not be replicated.
+- Deleting individual version or delete markers from history (restore the file) is not replicated.
 
 
 ### S3 Lifecycle Management & Glacier ###
@@ -77,8 +77,7 @@
 - ...
 - Path pattern: You may want to specify certain file extensions coming from certain folders, and you can specify those rules here as regex.
 - Viewer Protocol Policy: HTTP and HTTPS | Redirect HTTP to HTTPS | HTTPS only
-- Allowed HTTP methods: "GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE
-". If you select this option then user uploaded stuffs will first land to an edge location then copied to the source bucket.
+- Allowed HTTP methods: "GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE". If you select this option then user uploaded stuffs will first land to an edge location then copied to the source bucket.
 - ...
 - TTL:
     - Min

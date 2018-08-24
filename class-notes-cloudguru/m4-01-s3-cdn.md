@@ -4,9 +4,9 @@
 - Unlimited storage.
 - Files are stored in Buckets.
 - S3 uses a universal namespace. Each S3 bucket name must be unique globally.
-- S3 bucket link example: https://s3-eu-west-1.amazonaaws.com/my_bucket_name
+- S3 bucket link example: https://s3-eu-west-1.amazonaws.com/my_bucket_name
 - On a successful upload of a file to s3, you'll receive a HTTP 200 code.
-* S3 does not require region selection. Its global.
+* S3 does not require region selection. Its global. But S3 buckets are region specific.
 
 ### S3: Data Consistency Model ###
 - Read after Write consistency for PUTS of new objects.
@@ -19,7 +19,7 @@
     - Version ID
     - Metadata (e.g. tag)
     - Sub-resources
-        - Access Control List
+        - Access Control List (ACL)
         - Torrent
 - Availability: 99.99%
 - Durability: 99.99999999999% (11 x 9)
@@ -90,10 +90,11 @@
     - Version ID
     - Metadata
     - Sub-resources
-        - ACL
+        - Access Control List (ACL)
         - Torrent
 * S3 is not for OS or DB
 * HTTP 200 on successful upload
+
 
 ### CloudFront - Content Delivery Network (CDN) ###
 - System of distributed servers located in different geographic locations to ensure faster access via caching.
@@ -107,9 +108,10 @@
 
 * CDN works with other amazon web services as well as works seamlessly with any non-AWS origin server which stores the original definitive versions of your files.
 
-- Edge location is not only for read-only.
+- Edge location is not only for read-access, users can write to it too.
 - Objects are cached for life of the TTL (time to live).
 - You can clear cached objects, but will be charged.
+
 
 ### S3 Security & Encryption ###
 - By default all newly created buckets are PRIVATE.
@@ -118,6 +120,7 @@
     - Access Control Lists (ACL): allows you to control per object basis access.
 
 * S3 buckets can be configured to create access logs, which logs all requests made to the S3 bucket.
+
 
 ### S3 Encryption ###
 * 4 different methods of encryptions on S3.
