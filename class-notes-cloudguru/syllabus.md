@@ -1,3 +1,4 @@
+### Module Name                                              - Number of Lectures -    Time - agg Time ###
 - **Introduction To The Course**                                       3 Lectures   0:19:04    0:19:04
 - **AWS - 10,000 Feet Overview**                                       8 Lectures   1:27:47    1:46:51
 - **Identity Access Management (IAM)**                                 4 Lectures   0:32:47    2:19:38
