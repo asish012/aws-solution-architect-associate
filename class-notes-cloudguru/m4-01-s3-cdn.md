@@ -1,6 +1,8 @@
 ### S3 101: Simple Storage Service ###
 - Its an Object-based storage.
-- Files can be from 0 Bytes to 5 TB.
+- Files can be from 0 Bytes to 5TB.
+    - Upload objects in a single operation: With a single PUT operation, you can upload objects up to 5 GB in size.
+    - Upload objects in parts: Using the multi-part upload API, you can upload large objects, up to 5 TB.
 - Unlimited storage.
 - Files are stored in Buckets.
 - S3 uses a universal namespace. Each S3 bucket name must be unique globally.
@@ -38,6 +40,8 @@
     - Redundantly stored across multiple devices in multiple facilities, and is designed to sustain the loss of 2 facilities concurrently.
         * Devices: disks
         * Facilities: Availability zone
+- S3 Reduced Redundancy Storage (RRS): For noncritical, reproducible data
+
 - S3 IA (Infrequently Accessed):
     - Retrieval fee charged
 - S3 1 Zone IA:
@@ -47,18 +51,18 @@
     - Standard: Data archived takes 3-5 hours
     - Bulk: Data archived takes 5-12 hours
 
-|                             | S3 Standard     | S3 Standard-IA  | S3 One Zone-IA  | Glacier         |
-|-----------------------------|-----------------|-----------------|-----------------|-----------------|
-| Durability                  | 99.99999999999% | 99.99999999999% | 99.99999999999% | 99.99999999999% |
-| Availability                | 99.99%          | 99.9%           | 99.5%           | NA              |
-| Availability SLA            | 99.9%           | 99%             | 99%             | NA              |
-| Availability Zones          | >=3             | >=3             | 1               | >=3             |
-| Min capacity charge per obj | NA              | 128KB *         | 128KB *         | NA              |
-| Min storage duration charge | NA              | 30 Days         | 30 Days         | 90 Days         |
-| Retrieval Fee               | NA              | per GB          | per GB          | per GB **       |
-| First byte latency          | milliseconds    | milliseconds    | milliseconds    | minutes / hours |
-| Storage type                | Object          | Object          | Object          | Object          |
-| Lifecycle transitions       | Yes             | Yes             | Yes             | Yes             |
+|                             | S3 Standard     | RRS             | S3 Standard-IA  | S3 One Zone-IA  | Glacier         |
+|-----------------------------|-----------------|-----------------|-----------------|-----------------|-----------------|
+| Durability                  | 99.99999999999% | 99.99%          | 99.99999999999% | 99.99999999999% | 99.99999999999% |
+| Availability                | 99.99%          | 99.99%          | 99.9%           | 99.5%           | NA              |
+| Availability SLA            | 99.9%           |                 | 99%             | 99%             | NA              |
+| Availability Zones          | >=3             |                 | >=3             | 1               | >=3             |
+| Min capacity charge per obj | NA              |                 | 128KB *         | 128KB *         | NA              |
+| Min storage duration charge | NA              |                 | 30 Days         | 30 Days         | 90 Days         |
+| Retrieval Fee               | NA              |                 | per GB          | per GB          | per GB **       |
+| First byte latency          | milliseconds    |                 | milliseconds    | milliseconds    | minutes / hours |
+| Storage type                | Object          |                 | Object          | Object          | Object          |
+| Lifecycle transitions       | Yes             |                 | Yes             | Yes             | Yes             |
 
 * SLA: Service Level Agreements
 
