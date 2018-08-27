@@ -90,4 +90,61 @@ It won't store any credentials into ~/.aws directory.
     - `aws s3 cp --recursive  s3://bucket-apsoutheast2 /home/ec2-user --region eu-west-2`
 
 
-###  ###
+### Accessing Metadata from CLI (IMPORTANT) ###
+- Accessing metadata of our EC2 instance
+    `ssh ec2-user@<IP ADDRESS> -i <EC2_KEYPAIR.pem>`
+
+    `curl http://169.254.169.254/latest/meta-data/`
+
+    `curl http://169.254.169.254/latest/meta-data/public-ipv4`
+
+    `curl http://169.254.169.254/latest/meta-data/public-ipv4 > mypublicip.html`
+
+*Thus we can access our instance information and write it to a file on the same instance or write to our S3 instance or update our dns server.*
+
+- Access user-data aka used bootstrap script of the EC2 instance.
+    `curl http://169.254.169.254/latest/user-data/`
+
+
+### Launch Configuration and Auto Scaling Groups ###
+- Create our health check text: which is just a html file we will track if exists or not.
+- Put this file in our S3 bucket.
+- Now create an ELB which checks the healthcheck.html file to be sure if our instance is live or not.
+- Create a Auto Scaling Group
+    - It requires a Launch Configuration. So lets create one.
+        - Add the bootstrap script to install apache server, and copy the index.html and healthcheck.html file from S3 bucket to /var/www/html/.
+            `#!/bin/bash`
+            `yum install httpd -y`
+            `yum update -y`
+            `aws s3 cp s3://YOURBUCKETNAMEHERE /var/www/html/ --recursive`
+            `service httpd start`
+            `chkconfig httpd on`
+        - IP Address Type: Only assign a public IP address to instances launched in the default VPC and subnet. (Default)
+
+    *(back to create auto scaling group)*
+    - (Group details)
+    - Group name:
+    - Group size: 3
+    - Network:
+    - Subnet: Choose all AZ
+    - Advanced:
+        - Load Balancer:
+        - Health check type: ELB. (Health check of EC2 or ELB?)
+        - Health check grace period: when it should star checking health. since we install apache and copy contents from s3, we need some time to prepare our EC2 instances. so provide some time to do that stuff: 180s
+    - (Scaling policy: Increase)
+    - Execute policy when: Set Alarm: Average CPU utilization > 90% for consecutive period of 5 mins
+    - Take the action: add 1 instance
+    - Instances need: some time to warm up the instance: 300
+    - (Decrease)
+    - Execute policy when: Set Alarm: Average CPU utilization < 90% for consecutive period of 5 mins
+    - Take the action: remove 1 instance
+    **As soon as you finish creating a Auto Scaling Group it starts performing. So you'll able to see 3 EC2 instances are starting up.**
+    - Grab the DNS name of the Auto Scaling Group and paste it to your browser. You'll be able to see the index.html of one of your 3 EC2 instances. You can go to the ip address of your EC2 instances individually and check it as well.
+
+    - Now kill 2 of your 3 EC2 instances. You'll see you can't see index pages of those instances but your Auto Scaling Group's DNS name still serves the index page. The ASG takes some time to figure out that some instances are down and it starts new instances automatically.
+
+
+### EC2 Placement Group (IMPORTANT) ###
+Two types of Placement Groups:
+- Clustered Placement Group (IMP)
+- Spread Placement Group
