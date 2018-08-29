@@ -67,6 +67,7 @@ Since you always need an IP address for your naked domain name, It causes proble
 TTL is the length of time (in seconds) that a DNS record is cached on either the Resolving Server or the users own local PC. Once the TTL is expired your PC will look for the current DNS name. The lower the TTL is, the faster changes to DNS records take to propagate throughout the internet.
 
 
+
 ### Route 53 LAB ###
 Route 53 is a Global service.
 
@@ -78,13 +79,39 @@ Route 53 is a Global service.
 
 Different routing policies:
 - Simple (default):
+    - In a single region traffic will be distributed to all the machines equally.
     - User -> DNS Server -> EC2 (in your region).
     - Create a new record (an Alias record) of Simple Routing Policy pointing to London ELB as Alias Target.
 - Weighted:
+    - Traffic will be distributed to regions based on predefined weight of each region.
     - User -> DNS Server -> (based on the weight rule it divides traffic) -> Either London or Sydney ELB.
     - Create a new   record (an Alias record) of Weighted Routing Policy pointing to London ELB as Alias Target. Give the Weight 70
     - Create another record (an Alias record) of Weighted Routing Policy pointing to Sydney ELB as Alias Target. Give the Weight 30
 - Latency:
-    -
-- Failover
-- GeoLocation
+    - Traffic will be distributed among Regions based on the lowest latency.
+    - User -> Route53 -> (either) London | Sydney region
+    - Create a new   record (an Alias record) of Latency Routing Policy pointing to London ELB as Alias Target and also specify the region.
+    - Create another record (an Alias record) of Latency Routing Policy pointing to Sydney ELB as Alias Target and also specify the region.
+- Failover:
+    - Traffic will be routed based on the status (live/dead) of a region. You need to define Active and Passive (failover) regions.
+    - User -> Route53 -> London (if live) | Sydney (if London is dead)
+    - You need to define 2 health-checks on Route53,
+        - one is for Primary region (ELB London).
+        - another is for the entire domain (naked domain).
+    - Create a new   record (an Alias record) of Failover Routing Policy pointing to London ELB as Alias Target, Mark it as Primary   FailoverRecordType and also associate it with London ELB health-check.
+    - Create another record (an Alias record) of Failover Routing Policy pointing to Sydney ELB as Alias Target, Mark it as Secondary FailoverRecordType, here we don't need to associate it with any health-check.
+- GeoLocation:
+    - Traffic will be routed based on the user's geo-location.
+    - Create a new   record (an Alias record) of GeoLocation Routing Policy pointing to London ELB as Alias Target and also specify Location to Europe.
+    - Create another record (an Alias record) of GeoLocation Routing Policy pointing to Sydney ELB as Alias Target and also specify Location to Default (for all the other traffic).
+
+
+### Exam Tips ###
+- Difference between Alias Record and a CNAME
+- Prefer Alias Record over CNAME if you need to resolve it to AWS resource. Alias Record is free of cost but CNAME is not.
+- Different routing policies.
+    - Simple:
+    - Weighted: A & B testing.
+    - Latency: for quickest service
+    - Failover:
+    - GeoLocation:
