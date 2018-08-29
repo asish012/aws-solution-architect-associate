@@ -1,3 +1,5 @@
+> 36 - 38
+
 ### RAID Redundant Array of Independent Disk ###
 - RAID 0:
     - Striped multiple disks together and mount them as single volume.

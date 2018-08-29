@@ -1,3 +1,5 @@
+> 39 - 48
+
 ### Load balancer ###
 - VM balances load across bunch of web servers.
 - Application load balancer (OSI layer 7: HTTP/HTTPS)
@@ -145,6 +147,12 @@ It won't store any credentials into ~/.aws directory.
 
 
 ### EC2 Placement Group (IMPORTANT) ###
+Grouping of instances.
+
 Two types of Placement Groups:
-- Clustered Placement Group (IMP)
-- Spread Placement Group
+- Clustered Placement Group (IMP):
+    - Grouping of instances within a single AZ.
+    - Offers low network latency and/or high network throughput. e.g. application: Cassandra cluster, Big Data cluster.
+    *Only certain instances can be launched in to a Clustered Placement Group. Usually instances with high computation or RAM are allowed.*
+- Spread Placement Group:
+    - Group of instances placed distinct underlying hardware. Instances that should be kept separate from each other.

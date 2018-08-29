@@ -1,3 +1,5 @@
+> 34 - 35
+
 ### EC2 Security Group (IMPORTANT) ###
 - Start apache web server on every boot-up.
     `chkconfig httpd on`

@@ -1,3 +1,5 @@
+> 31 - 32
+
 ### Elastic Compute Cloud (EC2) - Lab ###
 We are going to setup our own EC2 (T2 micro free tier) instance.
 
