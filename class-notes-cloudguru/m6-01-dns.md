@@ -38,12 +38,12 @@ The "A Record" translates the name of the domain to the IP address.
 
 ### CNAMES: Canonical Name ###
 CNAMES resolves one domain name to another domain name, instead of an IP.
-For example, you may have a mobile website with the domain name _http://m.cloud.guru_ for your mobile users. You may also want the name _http://mobile.cloud.guru_ to resolve to this same address.
+For example, you may have a mobile website with the domain name http://m.cloud.guru for your mobile users. You may also want the name http://mobile.cloud.guru to resolve to this same address.
 `mobile.cloud.guru      CNAME       m.cloud.guru`
 `m.cloud.guru           A           185.31.17.133`
 
 A CNAME record represents an alias for the target name and inherits its entire resolution chain.
-Another example: _blog.dnsimple.com_ as a CNAME of _aetrion.github.io_, which in turns is itself a CNAME of _github.map.fastly.net_, which is an A Record pointing to _185.31.17.133_. In short terms, this means that _blog.dnsimple.com_ resolves to _185.31.17.133_.
+Another example: blog.dnsimple.com as a CNAME of aetrion.github.io, which in turns is itself a CNAME of github.map.fastly.net, which is an A Record pointing to 185.31.17.133. In short terms, this means that blog.dnsimple.com resolves to 185.31.17.133.
 
 `blog.dnsimple.com          CNAME       aetrion.github.io`
 `aetrion.github.io          CNAME       github.map.fastly.net`
