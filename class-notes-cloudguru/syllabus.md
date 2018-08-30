@@ -12,3 +12,6 @@
 - **The Well Architected Framework**                                   9 Lectures   1:45:37   18:56:58
 - **Additional Exam Tips**                                            12 Lectures   1:36:00   20:32:58
 - **Thank You, Good Luck & Coming Soon!**                              1 Lectures   0:05:51   20:38:49
+
+
+git push https://asish012:woody1986@github.com/asish012/aws-solution-architect-associate.git
