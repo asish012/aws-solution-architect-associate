@@ -156,6 +156,12 @@ It won't store any credentials into ~/.aws directory.
 
 
 ### Launch Configuration and Auto Scaling Groups ###
+**There are three main components in Auto Scaling:**
+- Auto Scaling Group
+- Launch Configuration
+- Scaling Plans
+
+**Create your first Auto Scaling Group**
 - Create our health check text: which is just a html file we will track if exists or not.
 - Put this file in our S3 bucket.
 - Now create an ELB which checks the healthcheck.html file to be sure if our instance is live or not.
