@@ -1,15 +1,44 @@
 > 39 - 48
 
 ### Load balancer ###
-- VM balances load across bunch of web servers.
-- Application load balancer (OSI layer 7: HTTP/HTTPS)
-- Network load balancer (OSI layer 4: TCP)
-- Classic load balancer (old Elastic Load Balancer ELB)
-    - Usually works on layer 4, but can also be configured (with x-forwarded-for) to work on layer 7.
+- Three types of Load Balancers:
+    - Application load balancer (OSI layer 7: HTTP/HTTPS)
+    - Network load balancer (OSI layer 4: TCP)
+    - Classic load balancer (old Elastic Load Balancer ELB)
+        - Usually works on layer 4, but can also be configured (with x-forwarded-for) to work on layer 7.
 
 * X-Forwarded-For Header: Your load balancer forwards the public ipv4 ip address of the original request to the WebService instance on your cloud.
 
 * Error 504: The gateway timeout error. Underneath application is not responding, so the loadbalancer sends 504 to the user on timeout.
+
+**Elastic Load Balancer (Classic Load Balancer)**
+- Supported Ports:
+    - 25 SMTP
+    - 80/443 HTTP/HTTPS
+    - 1024-65535
+
+* You can't assign a public IP address to your ELB, only works with DNS names. And Route53 resolves the DNS name of an ELB and transfers the traffic.
+* You can integrate ELB with CloudTrail for log security analysis.
+* 1 SSL Certificate per ELB. Multiple SSL certificate require multiple ELB.
+* WildCard certificates are supported.
+    * You can have a Certificate for `*.mysite.com`. In that case all sub-domains will be supported with the Certificate.
+    * However, if you create a Certificate for `blog.mysite.com` then you will have to have different certificate for all other sub-domains. e.g. `dev.mysite.com`
+
+* Load Balancer is a Region wide service, and it is a AWS provided service, you don't have to maintain high availability, or scalability. You can apply multiple ELB in a single region, but it won't bring much because if there is a platform issue then that issue would effect all your ELBs. And since ELB is a AWS service and AWS takes care of scaling and availability you don't need to do it yourself.
+
+![ELB in one region](img/architecture-elb.png)
+
+* You can have a single ELB that balances load across Availability Zones. Remember ELB is Region wide.
+
+![ELB with two AZ](img/architecture-elb-2-az.png)
+
+* And since you can apply Wild Card certificate, you can operate your service with only one Wild Card SSL certificate. But if you want to have a different SSL Certificate for a particular domain, then you have to deploy another ELB.
+
+- DNS Based Load Balancing: If a particular region goes down, Route53 could route the traffic to another region.
+
+![ELB for multiple regions](img/architecture-elb-2-regions.png)
+
+* While setting up the Load Balancer you can setup it in a way that it will transfer traffic to the instances on different AZ, or it will transfer traffic to the AZ disregarding the number of instances in that AZ.
 
 
 ### Load balancer Lab ###
@@ -24,6 +53,24 @@
     - Number of successful request before marking the instance live again.
 
 **Read ELB FAQ**
+
+**Application Load Balancer**
+Characteristics
+- Layer 7 Only
+- Content-based routing: Point to different application behind the LB.
+- Supports Micro-services and Containers:
+- Integrates with Elastic Container Service (ECS)
+- Better performance with real time streaming.
+- Reduced hourly cost + reduced number of LB which costs less.
+- Health Check + CloudWatch
+
+**Path Based Routing (feature of Application LB)**
+If you have multiple applications (orders and images) hosted in separate set of instances and you want to redirect your traffic based on sub-domains (order.mysite.com and images.mysite.com) then in the past you would have to use two ELBs to balance requests.
+But with Application Load Balancer solution: you could group instance sets into Target Groups and use a single Application LB and redirect traffic based on sub-domains for target groups.
+
+Target groups can be either bunch of EC2 instances or bunch of Containers. You can't mix and match EC2 and Containers.
+
+![Application Load Balancer over Classic Elastic Load Balancer](img/application-lb-with-multi-apps.jpg)
 
 
 ### Cloud Watch ###
