@@ -1,4 +1,4 @@
-### S3 101: Simple Storage Service ###
+## S3 101: Simple Storage Service ##
 - Its an Object-based storage.
 - Files can be from 0 Bytes to 5TB.
     - Upload objects in a single operation: With a single PUT operation, you can upload objects up to 5 GB in size.
@@ -10,11 +10,11 @@
 - On a successful upload of a file to s3, you'll receive a HTTP 200 code.
 * S3 does not require region selection. Its global. But S3 buckets are region specific.
 
-### S3: Data Consistency Model ###
+## S3: Data Consistency Model ##
 - Read after Write consistency for PUTS of new objects.
 - Eventual Consistency for overwrite PUTS and DELETES (can take some time to propagate update and delete operation)-
 
-### S3: In Depth ###
+## S3: In Depth ##
 - S3 is a simple key-value storage.
     - Key: The name of the object
     - Value: The data (sequence of bytes)
@@ -33,7 +33,7 @@
     - Bucket Policy: Policy applied on Bucket level
     - Access Control List: Applied on individual files
 
-### S3: Storage Tiers/Classes ###
+## S3: Storage Tiers/Classes ##
 - S3 Standard:
     - Availability: 99.99%
     - Durability: 99.99999999999%
@@ -66,7 +66,7 @@
 
 * SLA: Service Level Agreements
 
-### S3: Charges ###
+## S3: Charges ##
 - Charged for:
     - Storage: per GB
     - Number of request
@@ -75,7 +75,7 @@
     - Transfer acceleration: It uses CloudFront's backbone in order to enable fast and secure data transfer to CloudFront's distributed Edge locations. And from there it serves the end user.
 
 
-### S3 101 summary ###
+## S3 101 summary ##
 - S3 is object-based storage.
 - Files can be from 0 Bytes to 5 TB.
 - Unlimited storage.
@@ -100,7 +100,7 @@
 * HTTP 200 on successful upload
 
 
-### CloudFront - Content Delivery Network (CDN) ###
+## CloudFront - Content Delivery Network (CDN) ##
 - System of distributed servers located in different geographic locations to ensure faster access via caching.
 
 - Edge Location: Location where the content will be cached. its not "aws region" or "availability zone".
@@ -117,7 +117,7 @@
 - You can clear cached objects, but will be charged.
 
 
-### S3 Security & Encryption ###
+## S3 Security & Encryption ##
 - By default all newly created buckets are PRIVATE.
 - There are 2 ways to control access to your bucket:
     - Bucket Policy: applies to the entire bucket and all objects/files inside the bucket.
@@ -126,7 +126,7 @@
 * S3 buckets can be configured to create access logs, which logs all requests made to the S3 bucket.
 
 
-### S3 Encryption ###
+## S3 Encryption ##
 * 4 different methods of encryptions on S3.
 
 - 2 ways of encryptions

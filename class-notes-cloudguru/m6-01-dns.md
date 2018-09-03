@@ -1,4 +1,4 @@
-### DNS 101 ###
+## DNS 101 ##
 **Elastic Load Balancer doesn't have a IPv4 or IPv6 addresses, it only has a DNS name**
 
 There are 2 types of DNS:
@@ -15,7 +15,7 @@ Database of all domain names
 * `http://www.iana.org/domains/root/db`
 
 
-### SOA Records ###
+## SOA Records ##
 SOA Record contains the details about a domain name and its owner.
 - The name of the server that supplied the data for the zone.
 - The administrator of the zone.
@@ -26,17 +26,17 @@ SOA Record contains the details about a domain name and its owner.
 - The default number of seconds for the time-to-live file on resource records.
 
 
-### NS (Name Server) Record ###
+## NS (Name Server) Record ##
 NS Records are used by Top Level Domain servers to direct traffic to the Content DNS server which contains the authoritative DNS records.
 
 
-### A Record ###
+## A Record ##
 An "A Record" is the fundamental type of DNS record and the "A" in "A Record" stands for "Address".
 The "A Record" translates the name of the domain to the IP address.
     e.g. `blog.dnsimple.com.     A       185.31.17.133`
 
 
-### CNAMES: Canonical Name ###
+## CNAMES: Canonical Name ##
 CNAMES resolves one domain name to another domain name, instead of an IP.
 For example, you may have a mobile website with the domain name http://m.cloud.guru for your mobile users. You may also want the name http://mobile.cloud.guru to resolve to this same address.
 `mobile.cloud.guru      CNAME       m.cloud.guru`
@@ -50,7 +50,7 @@ Another example: blog.dnsimple.com as a CNAME of aetrion.github.io, which in tur
 `github.map.fastly.net      A           185.31.17.133`
 
 
-### Alias Records ###
+## Alias Records ##
 Alias records are used to map Resource Record Sets in your hosted zone to Elastic Load Balancers, CloudFront distributions, or S3 buckets that are configured as websites.
 Alias records work like a CNAME record in that you can map one DNS name (www.example.com) to another target DNS name (elb1234.elb.amazonaws.com).
 
@@ -63,12 +63,12 @@ Since you always need an IP address for your naked domain name, It causes proble
 **CNAME resolving is charged in AWS, but Alias Record resolving is free**
 
 
-### TTL: Time To Live ###
+## TTL: Time To Live ##
 TTL is the length of time (in seconds) that a DNS record is cached on either the Resolving Server or the users own local PC. Once the TTL is expired your PC will look for the current DNS name. The lower the TTL is, the faster changes to DNS records take to propagate throughout the internet.
 
 
 
-### Route 53 LAB ###
+## Route 53 LAB ##
 Route 53 is a Global service.
 
 - London Elastic Load Balancer
@@ -106,7 +106,7 @@ Different routing policies:
     - Create another record (an Alias record) of GeoLocation Routing Policy pointing to Sydney ELB as Alias Target and also specify Location to Default (for all the other traffic).
 
 
-### Exam Tips ###
+## Exam Tips ##
 - Difference between Alias Record and a CNAME
 - Prefer Alias Record over CNAME if you need to resolve it to AWS resource. Alias Record is free of cost but CNAME is not.
 - Different routing policies.

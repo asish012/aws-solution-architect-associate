@@ -1,4 +1,4 @@
-### S3 Overview ###
+## S3 Overview ##
 - S3 is global. So when you select S3 service from AWS Console notice that the selected region has been changed to "Global".
 - On the other hand, a particular Bucket is not global. When you go to create a Bucket you have to specify a region.
 - Bucket name however is global, because a bucket can be accessed via a DNS name.
@@ -35,7 +35,7 @@
 * By default Buckets and all the Objects inside a bucket is private.
 
 
-### S3 Versioning ###
+## S3 Versioning ##
 - Once the versioning is enabled you can't disable it later, you can only suspend it.
 - If the versioning is enabled, all versions of the file is actually kept (hidden) in the bucket including the deleted version.
 - You can enable "MFA Delete" option on buckets, which offers added layer of security.
@@ -44,7 +44,7 @@
     - Permanently delete and object version.
 
 
-### S3 Cross Region Replication ###
+## S3 Cross Region Replication ##
 - Versioning must be enabled to your source and destination bucket.
 - Regions must be different. You can't replicate bucket within the same region. You can do it with copy command from terminal.
 - Files in an existing bucket are not replicated automatically. Only subsequent updated files are replicated automatically.
@@ -56,14 +56,14 @@
 - Deleting individual version or delete markers from history (restore the file) is not replicated.
 
 
-### S3 Lifecycle Management & Glacier ###
+## S3 Lifecycle Management & Glacier ##
 - You can move your S3 buckets objects from one tire to another after certain time. e.g. From Standard to Standard-IA after X days and later move to Glacier after X days.
 - It can be used with or without versioning enabled.
 - It can be applied to current and previous versions.
 - You can also permanently delete objects using Lifecycle management rules.
 
 
-### CloudFront CDN ###
+## CloudFront CDN ##
 - We can create 2 types of distribution.
     - Web: Static and dynamic website (html, css, php, graphics, ...)
     - RTMP: Streaming media files using Adobe Flash Media Server's RTMP protocol.

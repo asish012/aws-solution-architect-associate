@@ -1,4 +1,4 @@
-### Databases 101 ###
+## Databases 101 ##
 * Available Relational DB Services on AWS
     - MS SQL
     - Oracle
@@ -25,7 +25,7 @@
         - Redis
 
 
-### RDS Lab ###
+## RDS Lab ##
 - Create a RDS instance with MySql engine
     * Create a new security group
 - Create a new EC2 instance with bootstrap script which installs: php, apache, php-mysql.
@@ -37,7 +37,7 @@
     * We need to go to the security group of our RDS instance and add an Inbound Rule to allow requests coming from EC2's security group.
 
 
-### RDS - Backups, Multi-AZ & Read Replicas ###
+## RDS - Backups, Multi-AZ & Read Replicas ##
 * There are two types of Backups for AWS:
     - Automated Backups
     - Database Snapshots
@@ -102,7 +102,7 @@
     - You can enable encryption to a replica even if the original database is not encrypted.
 
 
-### DynamoDB ###
+## DynamoDB ##
 Amazon DynamoDB is a fast and flexible NoSQL database service. It provides consistent, single-digit millisecond latency at any scale.
 - Spread Across 3 geographically distinct data centres.
 - Eventual Consistent Reads (default)

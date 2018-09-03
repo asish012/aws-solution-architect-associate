@@ -1,6 +1,6 @@
 > 49 - 51
 
-### Elastic File System (EFS) Basics ###
+## Elastic File System (EFS) Basics ##
 - Its a file storage service for Amazon Elastic Compute Cloud (EC2) instances.
 - Storage capacity is not bounded. growing and shrinking happens automatically as you add and remove files.
 - Supports the Network File System version 4 (NFSv4)
@@ -27,7 +27,7 @@ We can create a single File System and mount it to multiple EC2 instances. Singl
 - EBS can only be mounted to a single EC2 instance.
 
 
-### Lambda ###
+## Lambda ##
 - Lambda scales out automatically.
 - Lambda functions are independent. 1 event = 1 function. 1 event = X number of lambda functions
 - Lambda is serverless.
@@ -50,4 +50,4 @@ We can create a single File System and mount it to multiple EC2 instances. Singl
     - SNS
 
 
-### Serverless Web ###
+## Serverless Web ##
