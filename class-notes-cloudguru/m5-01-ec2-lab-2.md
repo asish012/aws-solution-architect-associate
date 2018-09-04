@@ -1,6 +1,6 @@
 > 34 - 35
 
-## EC2 Security Group (IMPORTANT) ##
+# EC2 Security Group (IMPORTANT) #
 - Start apache web server on every boot-up.
     `chkconfig httpd on`
 
@@ -17,7 +17,7 @@
 - You can't block/deny requests coming from particular IP address using Security Group, you can do it using Network Access Control List.
 
 
-## EBS Volumes (IMPORTANT) ##
+# EBS Volumes (IMPORTANT) #
 - All added volumes has to be in the same Availability Zone of the EC2 instance where you want to mount them.
 - We can change volume type and size of SSD volumes even when the EC2 instance is running. However you can't do that on Magnetic Standard volumes.
 - If you want to move one EBS Volume from one Availability zone to another:

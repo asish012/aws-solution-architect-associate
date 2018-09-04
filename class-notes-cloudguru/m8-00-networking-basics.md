@@ -1,4 +1,4 @@
-## Network ID, Subnet Mask & CIDR ##
+# Network ID, Subnet Mask & CIDR #
 Subnet Mask is also known as:
 - Subnet Mask
 - Network Mask

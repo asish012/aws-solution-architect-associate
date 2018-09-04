@@ -1,4 +1,4 @@
-## Storage Gateway (IMPORTANT) ##
+# Storage Gateway (IMPORTANT) #
 **AWS Storage Gateway is a service that connects an on-premises software appliance with cloud-based storage, to provide seamless and secure integration between an organization's on-premises IT environment and AWS's storage infrastructure.**
 
 *AWS Storage Gateway's software appliance is available as virtual machine image that you install on a host in your datacenter. It supports either VMWare ESXi or Microsoft Hyper-V.*
@@ -33,26 +33,26 @@
     - Durable, cost-effective solution to archive your data in AWS Cloud.
 
 
-## SnowBalls ##
+# SnowBalls #
 Snowball is a petabyte-scale data migration/transport solution (physical transportation).
 - Snowball: Onboard storage.
 - Snowball Edge: Onboard storage and compute capacity. Can run lambdas.
 - Snowmobile: Massive data container back of a 18 wheels track. can transfer Exabytes of data.
 
 
-## S3 Transfer Acceleration ##
+# S3 Transfer Acceleration #
 Using CloudFront Edge Network it accelerates your uploads to S3. Instead of uploading directly to your S3 bucket, it gives you a direct link to an Edge Location where you'll upload your files. Direct upload link of your bucket via the edge location looks like:
     `<bucket-name>.s3-acceleration.amazonaws.com`
 
 
-## Create a static website using S3 ##
+# Create a static website using S3 #
 - Upload your static html files, make them public and enable Static website hosting properties. Thats it.
 - If you want a custom domain name and point that to your static website stored in S3 bucket, you have to ensure the domain name and the S3 bucket name to be exactly same.
 - Static website url looks like (EXAM):
     `<bucket-name>.s3-website-<region>.amazonaws.com`
 
 
-## Summary: Chapter 4 ##
+# Summary: Chapter 4 #
 - S3
     - is Object based storage. Only for flat files not for OS/VM.
     - File size can be from 0 Bytes to 5TB.

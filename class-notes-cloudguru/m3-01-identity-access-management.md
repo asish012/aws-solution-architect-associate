@@ -1,8 +1,8 @@
-## What is IAM? ##
+# What is IAM? #
 IAM allows you to manage users and their level of access to the AWS Console.
 IAM doesn't have a region, its Global. All your created Users, Groups, Roles, Policies and other components of IAM are available globally.
 
-## What does IAM proved? ##
+# What does IAM proved? #
 - Centralized control of your AWS account.
 - Shared access to your AWS account.
 - Granular Permissions.
@@ -13,13 +13,13 @@ IAM doesn't have a region, its Global. All your created Users, Groups, Roles, Po
 - Integrates with many different AWS services.
 - Supports PCI DSS Compliance.
 
-## Some Terms ##
+# Some Terms #
 - Users: End users (people)
 - Groups: A collection of users under one set of permissions. HR group, Admin group, Finance group. Grouping users together and applying one or more sets of permissions together.
 - Role: Roles are assigned to AWS resources. e.g. your EC2 instance might be assigned a role to get access to your S3 instance to write files directly (no need to set up username password for that EC2 instance)
 - Policy: A document that defines one or more permissions. You can assign a policy to a User or a Group or a Role.
 
-## LAB 1: Identity Access Management ##
+# LAB 1: Identity Access Management #
 IAM doesn't have a region, its Global. All your created Users, Groups, Roles, Policies and other components of IAM are available globally.
 
 - Activate Multi-Factor-Authentication on your root account:
@@ -47,7 +47,7 @@ IAM doesn't have a region, its Global. All your created Users, Groups, Roles, Po
         - and What AWS service will it access? (S3 full access)
     2. Create an EC2 instance and assign him the role we just created.
 
-## Summary ##
+# Summary #
 - IAM doesn't have a region, its Global. All your created Users, Groups, Roles, Policies and other components of IAM are available globally.
 - The "root" account is simply the account created when first setup your AWS account. It has complete admin access.
 - New Users have NO permissions when first created.

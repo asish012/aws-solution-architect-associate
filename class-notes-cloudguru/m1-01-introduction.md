@@ -1,11 +1,11 @@
-## Domains ##
+# Domains #
 - Domain 1: Design Resilient Architectures                    34%
 - Domain 2: Define Performance Architectures                  24%
 - Domain 3: Specify Secure Applications and Architectures     26%
 - Domain 4: Design Cost-Optimized Architectures               10%
 - Domain 5: Define Operationally Excellent Architectures      6%
 
-## Domain details ##
+# Domain details #
 - Domain 1: Design Resilient Architectures
     - Choose reliable/resilient storage.
     - Determine how to design decoupling mechanisms using AWS services.

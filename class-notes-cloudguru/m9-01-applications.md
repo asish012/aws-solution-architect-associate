@@ -1,4 +1,4 @@
-## SQS: Simple Queue Service ##
+# SQS: Simple Queue Service #
 SQS is a distributed message queue service. It stores messages while waiting for a computer to process them.
 Using Amazon SQS, you can decouple the components of an application so they run independently.
 
@@ -29,3 +29,20 @@ Using Amazon SQS, you can decouple the components of an application so they run 
 A Way to retrieve messages from the SQS Queue. Regular short polling returns immediately (even if the queue is empty), long polling doesn't return until a message arrives in the queue, or times out.
 
 Usual short polling keeps asking if there is a message to retrieve. Which increases number of requests to the queue and increases the cost.
+
+
+# SWF: Simple Workflow Service #
+SWF helps to coordinate task across distributed application components. It helps developers build, run, and scale background jobs that have parallel or sequential steps. Jobs represent invocations of various processing steps by executable code, web service calls, human actions, and scripts.
+
+**Two components of SWF**
+- Worker: Programs that interact with Amazon SWF to get tasks, process them, and return the results.
+- Decider: Program that controls the coordination of tasks (i.e. their ordering, concurrency, and scheduling according to the application logic).
+
+**Difference between SWF and SQS**
+* SWF is a task-oriented API
+* SQS is a message-oriented API
+- SWF: A task is assigned only once and monitors their progress thus never duplicated with rescue effort.
+- SQS: Once the message visibility timeout expires, the task is visible again and another worker machine can pick it up. It increases the chance of doing the task again.
+
+**SWF Domains**
+- Parameters are specified in JSON format.

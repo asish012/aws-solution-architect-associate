@@ -1,6 +1,6 @@
 > 31 - 32
 
-## Elastic Compute Cloud (EC2) - Lab ##
+# Elastic Compute Cloud (EC2) - Lab #
 We are going to setup our own EC2 (T2 micro free tier) instance.
 
 **Configure EC2 Instance**
@@ -31,7 +31,7 @@ We are going to setup our own EC2 (T2 micro free tier) instance.
     - You can specify the source from where the traffic should come from.
 
 
-## Connect to your EC2 via SSH ##
+# Connect to your EC2 via SSH #
 - First protect the key-pair of your EC2
     `chmod 400 EC2KeyPair.pem`
 

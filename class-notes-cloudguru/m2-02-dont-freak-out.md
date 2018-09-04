@@ -1,4 +1,4 @@
-## Solution Architect Associate Relevant Components ##
+# Solution Architect Associate Relevant Components #
 - AWS Global Infrastructure
 - Compute
 - Storage
@@ -12,7 +12,7 @@
 - Desktop & App Streaming
 * (MOST IMPORTANT) VPC
 
-## Developer Associate Relevant Components ##
+# Developer Associate Relevant Components #
 - AWS Global Infrastructure
 - Compute
 - Storage
@@ -26,7 +26,7 @@
 <!-- More deeper knowledge of certain components are required in Developer Associate than Solution Architect Associate -->
 <!-- Components featured heavily: S3, DynamoDB, Application Integration and Analytics -->
 
-## SysOps Associate Relevant Components ##
+# SysOps Associate Relevant Components #
 - AWS Global Infrastructure
 - Compute
 - Storage

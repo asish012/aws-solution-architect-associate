@@ -1,6 +1,6 @@
 > 39 - 48
 
-## Load balancer ##
+# Load balancer #
 - Three types of Load Balancers:
     - Application load balancer (OSI layer 7: HTTP/HTTPS)
     - Network load balancer (OSI layer 4: TCP)
@@ -41,7 +41,7 @@
 * While setting up the Load Balancer you can setup it in a way that it will transfer traffic to the instances on different AZ, or it will transfer traffic to the AZ disregarding the number of instances in that AZ.
 
 
-## Load balancer Lab ##
+# Load balancer Lab #
 * One Subnet = One AZ
 
 * For Elastic Load Balancer/Application Load Balancer you won't get a public ip address. You will only get a DNS name. IP for ELB is maintained by Amazon itself because it changes time to time.
@@ -73,7 +73,7 @@ Target groups can be either bunch of EC2 instances or bunch of Containers. You c
 ![Application Load Balancer over Classic Elastic Load Balancer](img/application-lb-with-multi-apps.jpg)
 
 
-## Cloud Watch ##
+# Cloud Watch #
 **Monitoring service for your AWS services (ApplicationELB | EBS | EC2 | ELB | S3)**
 
 - Basic monitoring: Refresh every 5 minutes.
@@ -109,7 +109,7 @@ Target groups can be either bunch of EC2 instances or bunch of Containers. You c
         - e.g. if you create a new user, a new role, a new s3 bucket ...
 
 
-## AWS Command Line (CLI) ##
+# AWS Command Line (CLI) #
 - AWS CLI Available commands:
     - cp
     - ls
@@ -127,19 +127,19 @@ Target groups can be either bunch of EC2 instances or bunch of Containers. You c
     - `aws ec2 terminate-instances  --instance-id <InstanceId>`
 
 
-## IAM Roles ##
+# IAM Roles #
 Instead of using Secret Access Key to access EC2 from CLI, setup a Roles that has access to your EC2, and use only your PrivatePublic key to login to the EC2.
 It won't store any credentials into ~/.aws directory.
 
 * You can assign or remove roles later after creating and launching the EC2 instance.
 
 
-## S3 CLI & Regions ##
+# S3 CLI & Regions #
 - Via EC2 CLI, if you want to copy objects from a S3 bucket which is located in a different region than your EC2 instance, better add the --region argument. Otherwise some times it doesn't work.
     - `aws s3 cp --recursive  s3://bucket-apsoutheast2 /home/ec2-user --region eu-west-2`
 
 
-## Accessing Metadata from CLI (IMPORTANT) ##
+# Accessing Metadata from CLI (IMPORTANT) #
 - Accessing metadata of our EC2 instance
     `ssh ec2-user@<IP ADDRESS> -i <EC2_KEYPAIR.pem>`
 
@@ -155,7 +155,7 @@ It won't store any credentials into ~/.aws directory.
     `curl http://169.254.169.254/latest/user-data/`
 
 
-## Launch Configuration and Auto Scaling Groups ##
+# Launch Configuration and Auto Scaling Groups #
 **There are three main components in Auto Scaling:**
 - Auto Scaling Group
 - Launch Configuration
@@ -199,7 +199,7 @@ It won't store any credentials into ~/.aws directory.
     - Now kill 2 of your 3 EC2 instances. You'll see you can't see index pages of those instances but your Auto Scaling Group's DNS name still serves the index page. The ASG takes some time to figure out that some instances are down and it starts new instances automatically.
 
 
-## EC2 Placement Group (IMPORTANT) ##
+# EC2 Placement Group (IMPORTANT) #
 Grouping of instances.
 
 Two types of Placement Groups:

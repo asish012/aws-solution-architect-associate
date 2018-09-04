@@ -1,6 +1,6 @@
 > 36 - 38
 
-## RAID Redundant Array of Independent Disk ##
+# RAID Redundant Array of Independent Disk #
 - RAID 0:
     - Striped multiple disks together and mount them as single volume.
     - No redundancy, Good performance.
@@ -20,7 +20,7 @@
 * On AWS you can create multiple EBS volumes and put them together to create a single volume in a RAID (redundant array of independent disk) manner.
 
 
-## RAID LAB ##
+# RAID LAB #
 *Instantiating a EC2 Windows Server with 4 SSD drives*
 - Add a RDP (remote desktop protocol) rule to the inbound rules of your security group.
 - Using a Windows Server R2.
@@ -61,7 +61,7 @@
         - Start the EC2
 
 
-## Encrypt Root Device Volume & Snapshot ##
+# Encrypt Root Device Volume & Snapshot #
 - Before taking a snapshot its best practice to Stop the EC2 first.
 - After taking a snapshot of a non-encrypted volume we can simply encrypt it, copy it to other location, etc.
 - After copying, you can then create a Image (AMI) or Volume from of it. (Snapshots -> Actions -> Create Image)
@@ -75,7 +75,7 @@
 * Don't forget to stop/cleanup your Images, Snapshots and Instances.
 
 
-##  AMI Types and Root device volumes ##
+#  AMI Types and Root device volumes #
 * Two types of Root device volumes:
     * EBS
     * Instance Store
