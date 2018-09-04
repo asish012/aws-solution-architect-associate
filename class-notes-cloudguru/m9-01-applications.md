@@ -35,8 +35,9 @@ Usual short polling keeps asking if there is a message to retrieve. Which increa
 SWF helps to coordinate task across distributed application components. It helps developers build, run, and scale background jobs that have parallel or sequential steps. Jobs represent invocations of various processing steps by executable code, web service calls, human actions, and scripts.
 
 **Two components of SWF**
-- Worker: Programs that interact with Amazon SWF to get tasks, process them, and return the results.
+- Workflow Starter: An application that initiates a workflow. i.e. website when placing an order, or mobile app searching train schedule.
 - Decider: Program that controls the coordination of tasks (i.e. their ordering, concurrency, and scheduling according to the application logic).
+- Worker: Programs that interact with Amazon SWF to get tasks, process them, and return the results.
 
 **SWF vs SQS**
 * SWF is a task-oriented API
@@ -111,4 +112,3 @@ Kinesis Streams stores data for 24 hours (default). You can extend it up to 7 da
 
 **Shard**
 Kinesis Streams puts the data into Shards.
-
