@@ -95,4 +95,20 @@ CORS is one way the server at the other end (not the client code in the browser)
 * Solution: You need to enable CORS on API Gateway.
 
 
-# #
+# Kinesis #
+Amazon Kinesis makes it easy to collect, process, and analyze real-time, streaming data so you can get timely insights and react quickly to new information.
+With Amazon Kinesis, you can ingest real-time data such as video, audio, application logs, website clickstreams, and IoT telemetry data for machine learning, analytics, and other applications.
+
+**Kinesis Services**
+- Kinesis Streams: Puts data into Shards (a temporal data storage), where you can apply your computations.
+    * Kinesis Data Streams:
+    * Kinesis Video Streams:
+- Kinesis Firehose: Capture, transform, and load data streams into AWS data stores (S3) or ElasticSearch Cluster for near real-time analytics.
+- Kinesis Analytics: Process data streams in real time with SQL.
+
+Kinesis Streams stores data for 24 hours (default). You can extend it up to 7 days.
+
+
+**Shard**
+Kinesis Streams puts the data into Shards.
+
