@@ -38,11 +38,61 @@ SWF helps to coordinate task across distributed application components. It helps
 - Worker: Programs that interact with Amazon SWF to get tasks, process them, and return the results.
 - Decider: Program that controls the coordination of tasks (i.e. their ordering, concurrency, and scheduling according to the application logic).
 
-**Difference between SWF and SQS**
+**SWF vs SQS**
 * SWF is a task-oriented API
 * SQS is a message-oriented API
 - SWF: A task is assigned only once and monitors their progress thus never duplicated with rescue effort.
 - SQS: Once the message visibility timeout expires, the task is visible again and another worker machine can pick it up. It increases the chance of doing the task again.
+* SWF: Since SWF task doesn't have a timeout, there can be human interaction involved/introduced during designing.
 
-**SWF Domains**
-- Parameters are specified in JSON format.
+*SWF Domain parameters are specified in JSON format.*
+
+
+# SNS: Simple Notification Service #
+SNS is a pub/sub messaging and mobile notifications service. Its a push messaging service.
+
+SNS allows you to group multiple recipients using topics. Interested parties can subscribe to one or more topics and all the subscribers will receive an identical copy of the message (appropriately formatted).
+
+SNS Targets:
+- SMS
+- EMail
+- SQS
+- HTTP Endpoint
+- Lambda functions via SNS topic
+- Other AWS Services
+
+**SNS vs SQS**
+- SNS: Push (broadcast)
+- SQS: Pull
+
+*SNS is mostly used along with CloudWatch and Auto Scaling*
+
+
+# Elastic Transcoder #
+Amazon Elastic Transcoder is media transcoding (converting) service. It is used to convert (or “transcode”) media files from their source format into versions that will playback on devices like smartphones, tablets and PCs.
+
+
+# API Gateway #
+API Gateway makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale. You can create an API that acts as a “front door” for applications to access data, business logic, or functionality from your back-end services, such as workloads running on EC2, code running on AWS Lambda, or any web application.
+
+**API Caching**
+
+**Benefits:**
+- Low cost & efficient.
+- Scales effortlessly.
+- You can Throttle Requests to prevent attacks.
+- Connect to CloudWatch to log all requests.
+
+**Same Origin Policy**
+A web browser permits scripts contained in a first web page to access data in a second web page, but only if both pages have the same origin.
+
+**CORS: Cross-Origin Resource Sharing**
+CORS is a mechanism that allows restricted resources on a web page to be requested from another domain outside the domain from which the first resource was served.
+
+CORS is one way the server at the other end (not the client code in the browser) can relax the same-origin policy.
+
+* Error: "Origin policy cannot be read at the remote resource."
+* Solution: You need to enable CORS on API Gateway.
+
+
+# #
