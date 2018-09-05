@@ -84,10 +84,10 @@ API Gateway makes it easy for developers to create, publish, maintain, monitor, 
 - You can Throttle Requests to prevent attacks.
 - Connect to CloudWatch to log all requests.
 
-**Same Origin Policy**
+**Same Origin Policy:**
 A web browser permits scripts contained in a first web page to access data in a second web page, but only if both pages have the same origin.
 
-**CORS: Cross-Origin Resource Sharing**
+**CORS: Cross-Origin Resource Sharing:**
 CORS is a mechanism that allows restricted resources on a web page to be requested from another domain outside the domain from which the first resource was served.
 
 CORS is one way the server at the other end (not the client code in the browser) can relax the same-origin policy.
@@ -110,9 +110,66 @@ With Amazon Kinesis, you can ingest real-time data such as video, audio, applica
 Kinesis Streams stores data for 24 hours (default). You can extend it up to 7 days.
 
 
-**Shard**
+**Shard:**
 Kinesis Streams puts the data into Shards.
 
 
 # CloudFormation #
 <!-- From Pluralsight AWS SA Professional -->
+CloudFormation gives developers an easy way to create and manage a collection of related AWS resources, provisioning and updating them in an orderly and predictable fashion.
+
+You can automate almost any services on AWS platform.
+You can also find a lot of other third party CloudFormation scripts that you can download and can deploy complex environment. i.e. Citrix XenApp or Citrix XenDesktop environment.
+
+**Components:**
+- Templates: Architectural design, written in JSON.
+- Stacks: Deployed set of AWS resources based on templates.
+
+**Deployment:**
+Once created we can deploy the CloudFormation template in 3 ways:
+- Management Console
+- CLI
+- APIs
+
+# CloudFormation - Templates #
+**Template Elements:**
+- Mandatory elements
+    - File format and version
+    - List of resources and associated configuration values
+- Optional elements
+    - Template parameters (max 60 params)
+    - Output values
+        - IP of an instance
+        - DNS name of and ELB
+        - Name of a VPC
+        - ...
+    - List of data tables (static values)
+        - AMI names
+
+**Intrinsic Functions:**
+Build-in functions that help you manage the stacks. i.e.
+- Fn::Base64
+- Condition Functions
+- Fn::FindInMap
+- Fn::GetAtt
+- Fn::GetAZs
+- Fn::Join
+- Fn::Select
+- Ref
+
+Example: Fn::GetAtt
+- Declaration: "Fn::GetAtt" : [ "logicalnameOfResource", "attributeName" ]
+- Example    : "Fn::GetAtt" : [ "ELB", "DNSName" ]
+
+**Supported:**
+- Puppet and Chef integration
+- Bootstrap script
+- Define deletion policies
+- Provides WaitCondition
+- Create roles in IAM
+- VPCs can be created and customized
+- VPC peering in the same AWS account
+- Route 53
+
+**Stack Creation Errors:**
+On encountering and error by default CloudFormation is configured to rollback.
