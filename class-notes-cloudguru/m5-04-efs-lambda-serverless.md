@@ -33,21 +33,36 @@ We can create a single File System and mount it to multiple EC2 instances. Singl
 - Lambda is serverless.
 - Lambda timeout is 5 minutes.
 **What AWS services are serverless?**
+- Lambda
+- API Gateway
+- DynamoDB
+- S3
+
+**NOT Serverless Services**
+- RDS
+- EC2
+
 **What different languages are available for lambda?**
+- Node.js
+- Java
+- Python
+- C#
+- Go
+
 **What are the AWS Triggers?**
-    - API Gateway
-    - AWS IoT
-    - Alexa Skills Kit
-    - Alexa Smart Home
-    - CloudFront
-    - CloudWatch Events
-    - CloudWatch Logs
-    - CodeCommit
-    - Cognito Sync Trigger
-    - DynamoDB
-    - Kinesis
-    - S3
-    - SNS
+- API Gateway
+- AWS IoT
+- Alexa Skills Kit
+- Alexa Smart Home
+- CloudFront
+- CloudWatch Events
+- CloudWatch Logs
+- CodeCommit
+- Cognito Sync Trigger
+- DynamoDB
+- Kinesis
+- S3
+- SNS
 
 
 # Serverless Web #

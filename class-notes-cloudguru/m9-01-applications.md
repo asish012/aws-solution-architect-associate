@@ -76,13 +76,30 @@ Amazon Elastic Transcoder is media transcoding (converting) service. It is used 
 # API Gateway #
 API Gateway makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale. You can create an API that acts as a “front door” for applications to access data, business logic, or functionality from your back-end services, such as workloads running on EC2, code running on AWS Lambda, or any web application.
 
-**API Caching**
+**API Types**
+- REST API (uses JSON)
+- SOAP API (uses XML)
 
 **Benefits:**
 - Low cost & efficient.
 - Scales effortlessly.
+- Expose HTTPS endpoints to define a RESTful API.
+- Serverless-ly connect to services like Lambda & DynamoDB.
+- Send each API endpoint to a different target.
+- Track and control usage by API key.
 - You can Throttle Requests to prevent attacks.
 - Connect to CloudWatch to log all requests.
+
+**How to configure API**
+- Define an API.
+- Define Resources and nested Resources (URL paths).
+- For each resource:
+    - Select supported HTTP methods. (GET | POST | DELETE | ...)
+    - Set security.
+- Deploy API to a stage
+
+**API Caching:**
+You can enable API caching in API Gateway to cache your endpoint's response. Caches lives a specified time-to-live (TTL) period.
 
 **Same Origin Policy:**
 A web browser permits scripts contained in a first web page to access data in a second web page, but only if both pages have the same origin.
