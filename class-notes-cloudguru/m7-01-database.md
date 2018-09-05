@@ -8,15 +8,17 @@
     - MariaDB
 - Non Relational Databases
     - DynamoDB      (key-value)
-    - ElastiCache   (in-memory data store)
-    - Neptune       (graph)
+- Data Warehousing (OLAP)
+    - RedShift
+- In memory caching
+    - ElastiCache
+- Graph DB
+    - Neptune
 
 * Non relational db terminologies
     * Collection        = Tables
     * Document          = Row
     * Key Value Pair    = Fields
-
-- DataWarehousing
 
 - OLTP vs OLAP (Online Transaction Processing vs Online Analytics Processing)
     - If you need to run a complex analytics query on your system you shouldn't run it on the running production database. Because that would slow down the usual operation of your system. Instead you should create a copy of your current database and run your analytics query on that. There comes the concept of DataWarehousing.
@@ -107,14 +109,83 @@
 
 # DynamoDB #
 Amazon DynamoDB is a fast and flexible NoSQL database service. It provides consistent, single-digit millisecond latency at any scale.
-- Spread Across 3 geographically distinct data centres.
-- Eventual Consistent Reads (default)
-- Strongly Consistent Reads
+- Stored on SSD storage.
+- Push button scaling. You can change the size of the database on the fly and there won't be any downtime.
+- Spread Across 3 geographically distinct data centers.
+- Supports Key-Value and Document (JSON, HTML, XML) storage.
+- Authentication and Access control to DynamoDB is managed via AWS IAM.
+    - You can allow an user to be able to see only a part of your DynamoDB (i.e. His information only; using a Condition to an IAM policy).
+
+**Consistent Model for Read**
+- Eventual Consistent Reads (default): Consistency across all copies of data.
+- Strongly Consistent Reads:
+
+**Two types of Primary Key**
+- Partition Key: An unique attribute. This key goes to a hash function, and the output of the hash determines the physical location of the data to be stored.
+- Composite Key (Partition key + Sort key): 2 items may have the same Partition key, but their Sort key must be different. Offers better performance.
+
+*Using ElastiCache in front of DynamoDB offers high amounts of reads for non-frequently changed data*
+
 - Pricing
     - Write throughput $0.0065 per hour for every 10 units
     - Read  throughput $0.0065 per hour for every 50 units
 
     - Storage cost of $0.25GB per month
 
-* Pricing example:
-    -
+
+# RedShift: Data Warehousing Service #
+RedShift is used for running queries to analyze all your data across your data warehouse and data lake (for management reports).
+
+Configuration types:
+- Single Node (160 GB)
+- Multi Node
+    - Leader Node: Manages client connections and receives queries.
+    - Compute Node: Store data and perform queries and computations. (max 128 compute nodes)
+
+**Features:**
+
+*Columnar Data Storage*
+- RedShift organizes data by column, which is ideal for analytics (since only columns are involved in the queries.)
+- Columnar data are stored sequentially on the storage media, thus requires fewer I/Os.
+
+*Compression*
+- Columnar data can be compressed much more than row-based data, because similar data are stored sequentially in a disk.
+
+*MPP: Massively Parallel Processing*
+- RedShift automatically distributes data and query load across all nodes.
+
+**Security**
+
+**Availability**
+- Only available in 1 AZ
+
+
+# ElastiCache #
+In-memory data stores.
+
+**Types**
+- MemCache
+- Redis
+
+Your database is under a lot of stress/load. Which solution you should pick?
+Tips:
+- ElastiCache: If you database is particularly read heavy and not prone to frequent changes.
+- RedShift: If your database is under stress because management keep running big OLAP transactions.
+
+
+# Aurora (RDS) #
+MySQL and PostgreSQL compatible relational database built for the cloud.
+
+**Features**
+- Auto scaling.
+- 2 copies of data in each AZ, with minimum of 3 AZ. (6 copies of your data storage is maintained ((not computation-instance))).
+- Designed to transparently handle the loss of up to 2 copies of data without affecting database write availability, and up to 3 copies without affecting read availability.
+- Storage is self healing.
+
+2 types of replicas:
+- Aurora replicas (15 replicas)
+- MySQL Read Replicas (5 replicas)
+
+By default Aurora maintains 6 copies of your data, but only one Aurora Instance is created. So you might want to create failover instances. Just select your Aurora Instance's actions and select Create Replica. While creating replica select Failover priority "Tier-1" to make it the first failover. Failover position is determined by the Tier Number.
+
+

@@ -112,3 +112,6 @@ Kinesis Streams stores data for 24 hours (default). You can extend it up to 7 da
 
 **Shard**
 Kinesis Streams puts the data into Shards.
+
+
+# CloudFormation #
