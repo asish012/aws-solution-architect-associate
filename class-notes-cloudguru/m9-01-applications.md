@@ -173,3 +173,8 @@ Example: Fn::GetAtt
 
 **Stack Creation Errors:**
 On encountering and error by default CloudFormation is configured to rollback.
+
+
+# KMS: Key Management Service #
+<!-- Udamy AWS Developer -->
+KMS makes it easy for you to create and control the encryption keys used to encrypt your data, and uses FIPS 140-2 validated hardware security modules to protect the security of your keys.
