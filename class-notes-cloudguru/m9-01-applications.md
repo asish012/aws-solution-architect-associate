@@ -115,3 +115,4 @@ Kinesis Streams puts the data into Shards.
 
 
 # CloudFormation #
+<!-- From Pluralsight AWS SA Professional -->
