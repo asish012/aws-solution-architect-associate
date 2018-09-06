@@ -66,3 +66,6 @@ We can create a single File System and mount it to multiple EC2 instances. Singl
 
 
 # Serverless Web #
+
+![A simple serverless website with Lambda, Route 53, API Gateway, and S3 (static website)](img/simple-serverless-website.png)
+

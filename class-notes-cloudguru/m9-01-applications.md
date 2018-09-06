@@ -105,7 +105,7 @@ You can enable API caching in API Gateway to cache your endpoint's response. Cac
 A web browser permits scripts contained in a first web page to access data in a second web page, but only if both pages have the same origin.
 
 **CORS: Cross-Origin Resource Sharing:**
-CORS is a mechanism that allows restricted resources on a web page to be requested from another domain outside the domain from which the first resource was served.
+CORS is a mechanism that allows restricted resources (e.g. fonts) on a web page to be requested from another domain outside the domain from which the first resource was served.
 
 CORS is one way the server at the other end (not the client code in the browser) can relax the same-origin policy.
 
