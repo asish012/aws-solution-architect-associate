@@ -95,3 +95,12 @@ Following scenarios are ideal for using the ECS:
 - Continuous Deployment
 - MicroService
 
+
+# CloudTrail #
+A trail that applies to all regions has the following advantages:
+- The configuration settings for the trail apply consistently across all regions.
+- You receive CloudTrail events from all regions in a single S3 bucket and optionally in a CloudWatch Logs log group.
+- You manage trail configuration for all regions from one location.
+- You immediately receive events from a new region. When a new region launches, CloudTrail automatically creates a trail for you in the new region with the same settings as your original trail.
+- You can create trails in regions that you don't use often to monitor for unusual activity
+
