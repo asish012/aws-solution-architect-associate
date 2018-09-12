@@ -104,3 +104,20 @@ A trail that applies to all regions has the following advantages:
 - You immediately receive events from a new region. When a new region launches, CloudTrail automatically creates a trail for you in the new region with the same settings as your original trail.
 - You can create trails in regions that you don't use often to monitor for unusual activity
 
+* By default, the log files delivered by CloudTrail to your bucket are encrypted by Amazon SSE-S3 (server side encryption, managed by S3).
+* You can also opt to encrypt files using AWS SSE-KMS (server side encryption, managed by KMS)
+
+
+# VPC Peering #
+- You cannot create a VPC peering connection between VPCs with matching or overlapping IPv4 CIDR blocks (i.e. VPCA: 10.0.0.0/16; VPCB: 10.0.0.0/16;)
+-
+
+
+# NAT Gateway #
+How to enable instances in your private subnet to communicate with the Internet?
+- An Elastic IP needs to be assigned to the NAT gateway.
+- Update the route table associated with one or more of your private subnets to point Internet-bound traffic to the NAT gateway.
+
+* NOTE: You can not route traffic to a NAT gateway through a VPC peering connection, a VPN connection, or AWS Direct Connect.
+
+* NOTE: You can not grant a user permission to perform specific API operations on the NAT gateway. Once given, given the full permission.
