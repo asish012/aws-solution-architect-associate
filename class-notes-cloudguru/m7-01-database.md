@@ -175,9 +175,24 @@ Tips:
 
 # Aurora (RDS) #
 MySQL and PostgreSQL compatible relational database built for the cloud.
+Aurora DB cluster consists of one or more DB instances and a cluster-volume that manages the data for those DB instances.
+
+**Key Features:**
+- An Aurora cluster-volume can grow to a maximum size of 64 terabytes.
+- Aurora Clusters replica lag is less than 100 milliseconds after the primary instance has written an update.
+
+Two types of DB instances make up an Aurora DB cluster:
+- Primary DB instance:
+    - Supports read and write operations.
+    - Each Aurora DB cluster has one primary DB instance.
+- Aurora Replica:
+    - Connects to the same storage volume as the primary DB instance.
+    - Supports only read operations.
+    - Each Aurora DB cluster can have up to 15 Aurora Replicas.
 
 **Features**
 - Auto scaling.
+- An Aurora cluster-volume can grow to a maximum size of 64 terabytes
 - 2 copies of data in each AZ, with minimum of 3 AZ. (6 copies of your data storage is maintained ((not computation-instance))).
 - Designed to transparently handle the loss of up to 2 copies of data without affecting database write availability, and up to 3 copies without affecting read availability.
 - Storage is self healing.
