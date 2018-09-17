@@ -19,7 +19,7 @@
 
 # AWS services: Storage #
 - S3: Object based storage. Upload data into buckets.
-- EFS: Elastic File System. Elastic and scalable file storage.
+- EFS: Elastic File System.
 - Glacier: Data archiver.
 - Snowball: Bring large amount of data in terabytes directly write into disks.
 - Storage Gateway: VMs in data-centers that replicates data into S3.
