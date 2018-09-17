@@ -4,7 +4,7 @@
     - Oracle
     - MySQL
     - PostgreSQL
-    - Amazon Arora
+    - Amazon Aurora
     - MariaDB
 - Non Relational Databases
     - DynamoDB      (key-value)
@@ -85,7 +85,7 @@
     - MySQL
     - PostgreSQL
     - MariaDB
-*Arora has by default Multi-AZ support.*
+*Aurora has by default Multi-AZ support.*
 
 **Read Replicas:**
 - Instead of reading data from production database, spread the traffic to other replica databases.
@@ -109,6 +109,10 @@
 
 # DynamoDB #
 Amazon DynamoDB is a fast and flexible NoSQL database service. It provides consistent, single-digit millisecond latency at any scale.
+_DynamoDB is schema less_
+_DynamoDB is the most efficient storage for just storing metadata_
+_DynamoDB supports a secondary indexing as well_
+
 - Stored on SSD storage.
 - Push button scaling. You can change the size of the database on the fly and there won't be any downtime.
 - Spread Across 3 geographically distinct data centers.
@@ -144,12 +148,31 @@ Configuration types:
 
 **Features:**
 
-*Columnar Data Storage*
+*Columnar Data Storage:*
 - RedShift organizes data by column, which is ideal for analytics (since only columns are involved in the queries.)
 - Columnar data are stored sequentially on the storage media, thus requires fewer I/Os.
 
-*Compression*
+*Compression:*
 - Columnar data can be compressed much more than row-based data, because similar data are stored sequentially in a disk.
+
+*Redshift data Encryption:*
+[](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html)
+- Encryption is immutable setting of a cluster.
+- You can use either AWS Key Management Service (AWS KMS) or a hardware security module (HSM) to manage the top-level encryption keys in this hierarchy.
+
+- When you choose AWS KMS for key management with Redshift, there is a four-tier hierarchy of encryption keys:
+    - The Master Key
+    - A Cluster Encryption Key (CEK)
+    - A Database Encryption Key (DEK)
+    - Data Encryption Keys
+    * When you launch your cluster, Amazon Redshift returns a list of the customer master keys (CMKs) that your AWS account has created or has permission to use in AWS KMS. _You select a CMK to use as your master key in the encryption hierarchy_.
+
+- How to encrypt:
+    - If you want encryption, you enable it during the cluster launch process.
+    - To go from an unencrypted cluster to an encrypted cluster:
+        - Unload data from the existing cluster and reload it in a new cluster with enabling encryption.
+    - To go from an encrypted cluster to an unencrypted cluster:
+        - Unload data from the existing cluster and reload it in a new cluster with disabling encryption.
 
 *MPP: Massively Parallel Processing*
 - RedShift automatically distributes data and query load across all nodes.
@@ -175,9 +198,25 @@ Tips:
 
 # Aurora (RDS) #
 MySQL and PostgreSQL compatible relational database built for the cloud.
+Aurora DB cluster consists of one or more DB instances and a cluster-volume that manages the data for those DB instances.
+
+**Key Features:**
+- _Aurora supports schema changes_
+- An Aurora cluster-volume can grow to a maximum size of 64 terabytes.
+- Aurora Clusters replica lag is less than 100 milliseconds after the primary instance has written an update.
+
+Two types of DB instances make up an Aurora DB cluster:
+- Primary DB instance:
+    - Supports read and write operations.
+    - Each Aurora DB cluster has one primary DB instance.
+- Aurora Replica:
+    - Connects to the same storage volume as the primary DB instance.
+    - Supports only read operations.
+    - Each Aurora DB cluster can have up to 15 Aurora Replicas.
 
 **Features**
 - Auto scaling.
+- An Aurora cluster-volume can grow to a maximum size of 64 terabytes
 - 2 copies of data in each AZ, with minimum of 3 AZ. (6 copies of your data storage is maintained ((not computation-instance))).
 - Designed to transparently handle the loss of up to 2 copies of data without affecting database write availability, and up to 3 copies without affecting read availability.
 - Storage is self healing.

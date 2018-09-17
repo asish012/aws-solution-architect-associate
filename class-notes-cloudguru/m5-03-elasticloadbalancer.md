@@ -7,6 +7,8 @@
     - Classic load balancer (old Elastic Load Balancer ELB)
         - Usually works on layer 4, but can also be configured (with x-forwarded-for) to work on layer 7.
 
+_ELB can only balance traffic in one region, and not across multiple regions._
+
 * X-Forwarded-For Header: Your load balancer forwards the public ipv4 ip address of the original request to the WebService instance on your cloud.
 
 * Error 504: The gateway timeout error. Underneath application is not responding, so the loadbalancer sends 504 to the user on timeout.
@@ -160,6 +162,19 @@ It won't store any credentials into ~/.aws directory.
 - Auto Scaling Group
 - Launch Configuration
 - Scaling Plans
+
+Scaling:
+- Manual:
+- Scheduled: If application has predictable load changes.
+- Dynamic: Dynamically scales out or in, based on other matrices (traffic, cpu usage, memory usage, ...)
+
+Dynamic Scaling Policy Types:
+- Target tracking scaling: based on a target value for a specific metric.
+- Step scaling: based on a set of scaling adjustments.
+- Simple scaling: based on a single scaling adjustment.
+
+* _Scheduled scaling_ works better when you can predict the load changes and also when you know how long you need to run.
+* _Target tracking scaling_: works better when you are scaling based on a metric (traffic growth or shrink), which is an utilization metric that increases or decreases proportionally to the number of instances in the Auto Scaling group.
 
 **Create your first Auto Scaling Group**
 - Create our health check text: which is just a html file we will track if exists or not.
