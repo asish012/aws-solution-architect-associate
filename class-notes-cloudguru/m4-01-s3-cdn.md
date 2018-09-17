@@ -10,11 +10,11 @@
 - On a successful upload of a file to s3, you'll receive a HTTP 200 code.
 * S3 does not require region selection. Its global. But S3 buckets are region specific.
 
-# S3: Data Consistency Model #
+**S3: Data Consistency Model**
 - Read after Write consistency for PUTS of new objects.
 - Eventual Consistency for overwrite PUTS and DELETES (can take some time to propagate update and delete operation)-
 
-# S3: In Depth #
+**S3: In Depth**
 - S3 is a simple key-value storage.
     - Key: The name of the object
     - Value: The data (sequence of bytes)
@@ -33,7 +33,7 @@
     - Bucket Policy: Policy applied on Bucket level
     - Access Control List: Applied on individual files
 
-# S3: Storage Tiers/Classes #
+**S3: Storage Tiers/Classes**
 - S3 Standard:
     - Availability: 99.99%
     - Durability: 99.99999999999%
@@ -51,22 +51,22 @@
     - Standard: Data archived takes 3-5 hours
     - Bulk: Data archived takes 5-12 hours
 
-|                             | S3 Standard     | RRS             | S3 Standard-IA  | S3 One Zone-IA  | Glacier         |
+|                             | S3 Standard     | S3 Standard-IA  | S3 One Zone-IA  | Glacier         | RRS             |
 | --------------------------- | --------------- | --------------- | --------------- | --------------- | --------------- |
-| Durability                  | 99.99999999999% | 99.99%          | 99.99999999999% | 99.99999999999% | 99.99999999999% |
-| Availability                | 99.99%          | 99.99%          | 99.9%           | 99.5%           | NA              |
-| Availability SLA            | 99.9%           |                 | 99%             | 99%             | NA              |
-| Availability Zones          | >=3             |                 | >=3             | 1               | >=3             |
-| Min capacity charge per obj | NA              |                 | 128KB *         | 128KB *         | NA              |
-| Min storage duration charge | NA              |                 | 30 Days         | 30 Days         | 90 Days         |
-| Retrieval Fee               | NA              |                 | per GB          | per GB          | per GB **       |
-| First byte latency          | milliseconds    |                 | milliseconds    | milliseconds    | minutes / hours |
-| Storage type                | Object          |                 | Object          | Object          | Object          |
-| Lifecycle transitions       | Yes             |                 | Yes             | Yes             | Yes             |
+| Durability                  | 99.99999999999% | 99.99999999999% | 99.99999999999% | 99.99999999999% | 99.99%          |
+| _Availability_              | _99.99%_        | _99.9%_         | _99.5%_         | _NA_            | _99.99%_        |
+| Availability SLA            | 99.9%           | 99%             | 99%             | NA              |                 |
+| Availability Zones          | >=3             | >=3             | 1               | >=3             |                 |
+| Min capacity charge per obj | NA              | 128KB *         | 128KB *         | NA              |                 |
+| Min storage duration charge | NA              | 30 Days         | 30 Days         | 90 Days         |                 |
+| _Retrieval Fee_             | _NA_            | _per GB_        | _per GB_        | _per GB **_     |                 |
+| First byte latency          | milliseconds    | milliseconds    | milliseconds    | minutes / hours |                 |
+| Storage type                | Object          | Object          | Object          | Object          |                 |
+| Lifecycle transitions       | Yes             | Yes             | Yes             | Yes             |                 |
 
 * SLA: Service Level Agreements
 
-# S3: Charges #
+**S3: Charges**
 - Charged for:
     - Storage: per GB
     - Number of request
@@ -74,8 +74,17 @@
     - Data transfer pricing: When we do cross region replication (transfer data from one region to another)
     - Transfer acceleration: It uses CloudFront's backbone in order to enable fast and secure data transfer to CloudFront's distributed Edge locations. And from there it serves the end user.
 
+**Retrieval options from Glacier**
+- Expedited: Good for occasional urgent requests
+    - 1–5 minutes
+- Standard:
+    - 3–5 hours
+- Bulk: Good for retrieving large amounts of data, even petabytes.
+    - 5–12 hours
 
-# S3 101 summary #
+_You can increase throughput by allowing parallel access to your S3 bucket by using prefixes. Performance scales per prefix, and there are no limit on number of prefixes used._
+
+**S3 101 summary**
 - S3 is object-based storage.
 - Files can be from 0 Bytes to 5 TB.
 - Unlimited storage.
@@ -125,8 +134,7 @@
 
 * S3 buckets can be configured to create access logs, which logs all requests made to the S3 bucket.
 
-
-# S3 Encryption #
+**S3 Encryption**
 * 4 different methods of encryptions on S3.
 
 - 2 ways of encryptions
