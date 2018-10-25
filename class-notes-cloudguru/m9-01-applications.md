@@ -84,7 +84,7 @@ API Gateway makes it easy for developers to create, publish, maintain, monitor, 
 - Low cost & efficient.
 - Scales effortlessly.
 - Expose HTTPS endpoints to define a RESTful API.
-- Serverless-ly connect to services like Lambda & DynamoDB.
+- Serverlessly connect to services like Lambda & DynamoDB.
 - Send each API endpoint to a different target.
 - Track and control usage by API key.
 - You can Throttle Requests to prevent attacks.

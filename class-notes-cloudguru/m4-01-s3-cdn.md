@@ -83,6 +83,7 @@
     - 5–12 hours
 
 _You can increase throughput by allowing parallel access to your S3 bucket by using prefixes. Performance scales per prefix, and there are no limit on number of prefixes used._
+_If the request rate is high, you can use hash keys or random strings to prefix the object name._
 
 **S3 101 summary**
 - S3 is object-based storage.
@@ -124,6 +125,10 @@ _You can increase throughput by allowing parallel access to your S3 bucket by us
 - Edge location is not only for read-access, users can write to it too.
 - Objects are cached for life of the TTL (time to live).
 - You can clear cached objects, but will be charged.
+
+_If you want to log your CloudFront usage data for the last 365 days (PCI or HIPAA compliant)_
+- Enable CloudFront access logs.
+- Capture requests that are sent to the CloudFront API.
 
 
 # S3 Security & Encryption #

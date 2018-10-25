@@ -75,7 +75,7 @@ Target groups can be either bunch of EC2 instances or bunch of Containers. You c
 ![Application Load Balancer over Classic Elastic Load Balancer](img/application-lb-with-multi-apps.jpg)
 
 
-# Cloud Watch #
+# CloudWatch #
 **Monitoring service for your AWS services (ApplicationELB | EBS | EC2 | ELB | S3)**
 
 - Basic monitoring: Refresh every 5 minutes.
@@ -109,6 +109,18 @@ Target groups can be either bunch of EC2 instances or bunch of Containers. You c
     - CloudWatch is for performance monitoring and performance logging.
     - CloudTrail is for auditing, to monitor the whole cloud environment.
         - e.g. if you create a new user, a new role, a new s3 bucket ...
+
+**CloudWatch Events**
+CloudWatch Events delivers a near real-time stream of system events that describe changes in AWS resources.
+
+_Events:_ An event indicates a change in your AWS environment. AWS resources can generate events when their state changes.
+- EC2 generates an event when it changes its state from pending to running.
+- Auto Scaling generates events when it launches or terminates instances.
+- CloudTrail publishes events when you make API calls.
+- You can also generate custom application-level events and publish them to CloudWatch Events.
+
+_Targets:_ A target processes events. A target receives events in JSON format.
+_Rules:_ A rule matches incoming events and routes them to targets for processing.
 
 
 # AWS Command Line (CLI) #
