@@ -54,6 +54,10 @@ CloudWatch Logs:
 - CloudWatch Logs subscription can be used across multiple AWS accounts (requires cross account access).
 
 
+_CloudWatch Events:_
+CloudWatch Events delivers a near real-time stream of system events that describe changes in AWS resources.
+
+
 # Trusted Advisor #
 Free auditing service, where you can get AWS advises to help you reduce cost, increase performance, and improve security by optimizing your AWS environment.
 It also provides real time guidance to help you provision your resources following AWS best practices.
