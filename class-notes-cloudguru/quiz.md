@@ -15,8 +15,21 @@
 - VPC Flow Logs:
     - VPC Flow Logs captures IP traffic going to and from network interfaces in your VPC. Flow log data is stored using Amazon CloudWatch Logs.
     - You can create a flow log for a VPC, a subnet, or a network interface.
-- AWS Cloud Trails
+- CloudTrails
     - To track your changes.
+    - Enables governance, compliance, operation auditing, and risk auditing.
+    - CloudTrail provides:
+        - Event history of your AWS account activity; This helps Security analysis, resource change tracking
+        - Logs
+- CloudWatch
+    - Monitor performance of aws resources
+    - Store logs including CloudTrail logs.
+
+
+**Tagging**
+- Tags help you manage your instances, images, and other Amazon EC2 resources.
+- Tags enable you to categorize your AWS resources in different ways, for example, by purpose, owner, or environment.
+- EG: You can add tags to production instances and development instances. These tags can then be used while controlling access via an IAM Policy.
 
 
 **Encryption** with AWS KMS:
