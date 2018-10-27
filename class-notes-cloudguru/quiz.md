@@ -21,8 +21,9 @@
     - CloudTrail provides:
         - Event history of your AWS account activity; This helps Security analysis, resource change tracking
         - Logs
+    * By default, CloudTrail event log files are encrypted using Amazon S3 server-side encryption (SSE).
 - CloudWatch
-    - Monitor performance of aws resources
+    - Monitor performance of aws resources.
     - Store logs including CloudTrail logs.
 
 
@@ -33,24 +34,30 @@
 
 
 **Encryption** with AWS KMS:
-- RDS:
+* RDS:
     - You can encrypt your Amazon RDS DB instances and snapshots at rest by enabling the encryption option for your Amazon RDS DB instances. Data that is encrypted at rest includes the underlying storage for a DB instances, its automated backups, Read Replicas, and snapshots.
-- EBS:
+* EBS:
     - EBS Volumes can be encrypted.
     - Snapshot can be encrypted while creating a copy of an unencrypted snapshot of an unencrypted EBS volume. Volumes restored from this encrypted copy are also encrypted.
     - A Snapshot from an encrypted volume is already encrypted.
     * There is no direct way to encrypt an existing unencrypted volume, or to remove encryption from an encrypted volume.
     - When you have access to both an encrypted and unencrypted volume, you can freely transfer data between them. EC2 carries out the encryption and decryption operations transparently.
-- EFS:
+* EFS:
     - Amazon EFS Now Supports Encryption of Data at Rest.
-- S3:
-    - Data protection refers to protecting data while in-transit (as it travels to and from Amazon S3) and at rest (while it is stored on disks in Amazon S3 data centers). You can protect data in transit by using SSL or by using client-side encryption. You have the following options of protecting data at rest in Amazon S3.
+* S3:
+    - Data protection refers to protecting data while _in-transit_ (as it travels to and from Amazon S3) and _at rest_ (while it is stored on disks in Amazon S3 data centers). You can protect data in transit by using SSL or by using client-side encryption. You have the following options of protecting data at rest in Amazon S3:
+        - _Server-Side Encryption_: S3 will encrypt your object before saving it on disks and will decrypt it when you download the objects.
+        - _Client-Side Encryption_: You can encrypt data in the client-side and upload the encrypted data to Amazon S3. In this case, you manage the encryption process, the encryption keys, and related tools.
 
 
 **Elastic Beanstalk**
 - With Elastic Beanstalk, you can quickly deploy and manage applications in the AWS Cloud.
 - You simply upload your application, and Elastic Beanstalk automatically handles the details of capacity provisioning, load balancing, scaling, and application health monitoring.
 - Elastic Beanstalk supports the deployment of web applications from Docker containers.
+
+
+**OpsWorks**
+- AWS OpsWorks is a configuration management service that helps you configure and operate applications in a cloud enterprise by using Puppet or Chef.
 
 
 **Amazon Kinesis**
@@ -74,6 +81,21 @@
 
 **S3 PUT/PUTS/DELETE request rate**
 - Amazon S3 automatically scales to high request rates. For example, your application can achieve at least 3500 PUT/POST/DELETE and 5500 GET requests _per second per prefix_ in a bucket. There are no limits to the number of prefixes in a bucket.
+
+
+**Amazon ECS Launch Types**
+An Amazon ECS launch type determines the type of infrastructure on which your tasks and services are hosted.
+- Fargate Launch Type (managed by AWS): Run your containerized applications without the need to provision and manage the backend infrastructure.
+- EC2 Launch Type (managed by You): You run your containerized applications on a cluster of Amazon EC2 instances that you manage.
+
+
+**AWS Storage Gateway**
+- Storage Gateway connects an on-premises software appliance with cloud-based storage to provide seamless integration between your on-premises IT environment and the AWS storage infrastructure.
+    - _File Gateway_: A file gateway simplifies file storage in Amazon S3, integrates to existing applications through industry-standard file system protocols.
+    - _Volume Gateway_: A volume gateway provides cloud-backed storage volumes that you can mount as Internet Small Computer System Interface (iSCSI) devices from your on-premises application servers.
+        - _Cached volumes_: You store your data in Amazon Simple Storage Service (Amazon S3) and retain a copy of frequently accessed data subsets locally.
+        - _Stored volumes_: You store all your data locally and asynchronously back up point-in-time snapshots of this data to Amazon S3. This provides low-latency access to your entire dataset.
+    - _Tape Gateway_: With a tape gateway, you can cost-effectively and durably archive backup data in Amazon Glacier.
 
 
 **EBS Volume Types**
