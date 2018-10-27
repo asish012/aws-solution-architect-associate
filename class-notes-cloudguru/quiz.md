@@ -73,7 +73,7 @@
 
 
 **S3 PUT/PUTS/DELETE request rate**
-- Amazon S3 automatically scales to high request rates. For example, your application can achieve at least 3,500 PUT/POST/DELETE and 5,500 GET requests _per second per prefix_ in a bucket. There are no limits to the number of prefixes in a bucket.
+- Amazon S3 automatically scales to high request rates. For example, your application can achieve at least 3500 PUT/POST/DELETE and 5500 GET requests _per second per prefix_ in a bucket. There are no limits to the number of prefixes in a bucket.
 
 
 **EBS Volume Types**
