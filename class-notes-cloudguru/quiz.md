@@ -11,6 +11,24 @@
 - IAM policy
     - Be sure the users associated with the IAM user or role have the correct permissions to access Amazon S3
 
+
+**Limiting Limiting Access to S3 Content**
+- Using an Origin Access Identity (OAI)
+- Restricting Content with Signed URLs and Signed Cookies
+- Using AWS WAF (web application firewall) to Control Access to Your Content
+- Geo-Restricting Content
+
+**Securing Access to S3 Content**
+- Using HTTPS with CloudFront
+- Using Alternate Domain Names and HTTPS
+- Using Field-Level Encryption to Help Protect Sensitive Data
+
+
+**IAM-AMI**
+- IAM is not az specific, they are valid across entire account.
+- AMI is region specific, to use the AMI in another region, you must copy it to that region.
+
+
 **Logs**
 - VPC Flow Logs:
     - VPC Flow Logs captures IP traffic going to and from network interfaces in your VPC. Flow log data is stored using Amazon CloudWatch Logs.
@@ -125,6 +143,11 @@ An Amazon ECS launch type determines the type of infrastructure on which your ta
 - Magnetic (Standard)
     - Lowest cost per giga of all EBS volume types that bootable.
 
+**By default, EBS Volumes are replicated within their Availability Zones to protect you from component failure.**
+
+**Snapshots of EBS**
+A snapshot is constrained to the region where it was created. After you create a snapshot of an EBS volume, you can use it to create new volumes in the same region. You can also copy snapshots across regions, making it possible to use multiple regions for geographical expansion, data center migration, and disaster recovery.
+
 
 **Well Architected Framework**
 - Design Principle:
@@ -161,3 +184,33 @@ An Amazon ECS launch type determines the type of infrastructure on which your ta
     - Scale horizontally to increase aggregate system availability
     - Stop guessing capacity
 - *Reliability - .*
+
+
+**STS**
+
+
+**RDS Multi-AZ VS Read Replicas**
+| Multi-AZ Deployments                                      | Read Replicas                                                       |
+| --------------------------------------------------------- | ------------------------------------------------------------------- |
+| Synchronous replication – highly durable                  | Asynchronous replication – highly scalable                          |
+| Only database engine on primary instance is active        | All read replicas are accessible and can be used for read scaling   |
+| Automated backups are taken from standby                  | No backups configured by default                                    |
+| Always span two Availability Zones within a single Region | Can be within an Availability Zone, Cross-AZ, or Cross-Region       |
+| Automatic failover to standby when a problem is detected  | Can be manually promoted to a standalone database instance          |
+
+
+**Trusted Advisor**
+Trusted Advisor helps you to reduce cost, increase performance, and improve security by optimizing your AWS environment.
+It also provides real time guidance to help you provision your resources following AWS best practices.
+
+**Inspector**
+Amazon Inspector is an automated security assessment service that helps improve the security and compliance of applications deployed on AWS. Amazon Inspector automatically assesses applications for vulnerabilities or deviations from best practices.
+
+
+**RedShift**
+To enable access to the cluster from SQL client tools via JDBC or ODBC, you use security groups:
+- If you are using the EC2-Classic platform for your Amazon Redshift cluster, you must use Amazon Redshift security groups.
+- If you are using the EC2-VPC platform for your Amazon Redshift cluster, you must use VPC security groups.
+
+_Snapshot_:
+Automated snapshots are enabled by default when you create a cluster. Amazon Redshift stores these snapshots internally in Amazon S3 by using an encrypted Secure Sockets Layer (SSL) connection.
