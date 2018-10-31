@@ -199,6 +199,20 @@ A snapshot is constrained to the region where it was created. After you create a
 | Automatic failover to standby when a problem is detected  | Can be manually promoted to a standalone database instance          |
 
 
+**Arora**
+- If you have an Amazon Aurora Replica in the same or a different Availability Zone, when failing over, Amazon Aurora flips the canonical name record (CNAME) for your DB Instance to point at the healthy replica, which in turn is promoted to become the new primary. Start-to-finish, failover typically completes within 30 seconds.
+- If you do not have an Amazon Aurora Replica (i.e. single instance), Aurora will first attempt to create a new DB Instance in the same Availability Zone as the original instance. If unable to do so, Aurora will attempt to create a new DB Instance in a different Availability Zone. From start to finish, failover typically completes in under 15 minutes.
+
+
+**ElastiCache**
+ElastiCache offers fully managed in-memory data storage (Redis and Memcached).
+ElastiCache is a popular choice for Gaming, Ad-Tech, Financial Services, Healthcare, and IoT apps.
+
+
+**Athena**
+Athena is an interactive query service that makes it easy to analyze data in Amazon S3 using standard SQL. Athena is serverless.
+
+
 **Trusted Advisor**
 Trusted Advisor helps you to reduce cost, increase performance, and improve security by optimizing your AWS environment.
 It also provides real time guidance to help you provision your resources following AWS best practices.
@@ -214,3 +228,28 @@ To enable access to the cluster from SQL client tools via JDBC or ODBC, you use 
 
 _Snapshot_:
 Automated snapshots are enabled by default when you create a cluster. Amazon Redshift stores these snapshots internally in Amazon S3 by using an encrypted Secure Sockets Layer (SSL) connection.
+
+**Auto Scaling Group**
+- It ensures that the Auto Scaling group does not launch or terminate additional EC2 instances before the previous scaling activity takes effect.
+- Its default value is 300 seconds.
+- It is a configurable setting for your Auto Scaling group.
+
+
+**Shared Responsibility Model**
+- AWS manages the following assets:
+    - Facilities
+    - Physical security of hardware
+    - Network infrastructure
+    - Virtualization infrastructure
+
+- The customer are responsible for:
+    - Amazon Machine Images (AMIs)
+    - Operating systems and their patches
+    - Applications
+    - Data in transit
+    - Data at rest
+    - Data stores
+    - Credentials
+    - Policies and configuration
+
+
