@@ -253,3 +253,36 @@ Automated snapshots are enabled by default when you create a cluster. Amazon Red
     - Policies and configuration
 
 
+### 1200 employees would be granted access to use Amazon S3 for their personal documents. Which of the following will you need to consider so you can set up a solution that incorporates single sign-on feature from your corporate AD or LDAP directory and also restricts access for each individual user to a designated user folder in an S3 bucket?
+- Setup a Federation proxy or an Identity provider
+- Setup an AWS Security Token Service to generate temporary tokens
+- Configure an IAM role
+
+In an enterprise identity federation, you can authenticate users in your organization's network, and then provide those users access to AWS without creating new AWS identities for them and requiring them to sign in with a separate user name and password. This is known as the single sign-on (SSO) approach to temporary access. AWS STS supports open standards like Security Assertion Markup Language (SAML) 2.0, with which you can use Microsoft AD FS to leverage your Microsoft Active Directory. You can also use SAML 2.0 to manage your own solution for federating user identities.
+
+
+**SWF vs SQS**
+- _SWF_: Amazon SWF helps to co-ordinate work across distributed application components. It helps developers build, run, and scale background jobs that have parallel or sequential steps. You can think of Amazon SWF as a fully-managed state tracker and task coordinator in the Cloud. Tasks represent invocation of various processing steps in an application which can be performed by executable code, web service calls, human actions and scripts.
+- _SQS_: Amazon SQS helps to set up a highly decoupled application in AWS.
+
+
+### Amazon S3 Standard - Infrequent Access (Standard - IA) ###
+- Used for data that is accessed less frequently
+- Rapid access
+- Ideally for long-term storage, backup, and storage for disaster recovery
+- Low Latency & High Throughput
+- Reduced Redundancy Storage (RRS)
+
+### Which of the following AWS services encrypts data at rest by default? ###
+- AWS Storage Gateway
+- Amazon Glacier
+
+
+### AWS Trusted Advisor analyzes your AWS environment and provides best practice recommendations in these five categories: ###
+- Cost Optimization, Performance, Fault Tolerance, Security, and Service Limits (CPFSS)
+
+
+**> http://169.254.169.254/latest/meta-data/ is the URL that you can use to retrieve the Instance Metadata of your EC2 instance, including the public-hostname, public-ipv4, public-keys et cetera. <**
+
+
+
