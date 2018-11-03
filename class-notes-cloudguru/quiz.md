@@ -230,11 +230,12 @@ Amazon Inspector is an automated security assessment service that helps improve 
 
 **RedShift**
 To enable access to the cluster from SQL client tools via JDBC or ODBC, you use security groups:
-- If you are using the EC2-Classic platform for your Amazon Redshift cluster, you must use Amazon Redshift security groups.
-- If you are using the EC2-VPC platform for your Amazon Redshift cluster, you must use VPC security groups.
+- If you are using the _EC2-Classic_ platform for your Amazon Redshift cluster, you must use _Amazon Redshift security groups_.
+- If you are using the _EC2-VPC_ platform for your Amazon Redshift cluster, you must use _VPC security groups_.
 
 _Snapshot_:
 Automated snapshots are enabled by default when you create a cluster. Amazon Redshift stores these snapshots internally in Amazon S3 by using an encrypted Secure Sockets Layer (SSL) connection.
+
 
 **Auto Scaling Group**
 - It ensures that the Auto Scaling group does not launch or terminate additional EC2 instances before the previous scaling activity takes effect.
@@ -270,6 +271,7 @@ In an enterprise identity federation, you can authenticate users in your organiz
 
 **SWF vs SQS**
 - _SWF_: Amazon SWF helps to co-ordinate work across distributed application components. It helps developers build, run, and scale background jobs that have parallel or sequential steps. You can think of Amazon SWF as a fully-managed state tracker and task coordinator in the Cloud. Tasks represent invocation of various processing steps in an application which can be performed by executable code, web service calls, human actions and scripts.
+- If your app's steps take more than 500 milliseconds to complete, you need to track the state of processing, and you need to recover or retry if a task fails. There you need SWF.
 - _SQS_: Amazon SQS helps to set up a highly decoupled application in AWS.
 
 
