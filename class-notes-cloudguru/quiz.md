@@ -23,6 +23,9 @@
 - Using Alternate Domain Names and HTTPS
 - Using Field-Level Encryption to Help Protect Sensitive Data
 
+*> S3 is an "object storage" <*
+*> EFS is a "file storage"   <*
+
 
 **IAM-AMI**
 - IAM is not az specific, they are valid across entire account.
@@ -56,9 +59,9 @@
     - You can encrypt your Amazon RDS DB instances and snapshots at rest by enabling the encryption option for your Amazon RDS DB instances. Data that is encrypted at rest includes the underlying storage for a DB instances, its automated backups, Read Replicas, and snapshots.
 * EBS:
     - EBS Volumes can be encrypted.
+    * There is no direct way to encrypt an existing unencrypted volume, or to remove encryption from an encrypted volume.
     - Snapshot can be encrypted while creating a copy of an unencrypted snapshot of an unencrypted EBS volume. Volumes restored from this encrypted copy are also encrypted.
     - A Snapshot from an encrypted volume is already encrypted.
-    * There is no direct way to encrypt an existing unencrypted volume, or to remove encryption from an encrypted volume.
     - When you have access to both an encrypted and unencrypted volume, you can freely transfer data between them. EC2 carries out the encryption and decryption operations transparently.
 * EFS:
     - Amazon EFS Now Supports Encryption of Data at Rest.
@@ -205,8 +208,9 @@ A snapshot is constrained to the region where it was created. After you create a
 
 
 **ElastiCache**
-ElastiCache offers fully managed in-memory data storage (Redis and Memcached).
-ElastiCache is a popular choice for Gaming, Ad-Tech, Financial Services, Healthcare, and IoT apps.
+- ElastiCache offers fully managed in-memory data storage (Redis and Memcached).
+- ElastiCache is a popular choice for Gaming, Ad-Tech, Financial Services, Healthcare, and IoT apps.
+- It improves the performance of web applications by allowing you to retrieve information from fast, managed, in-memory data stores
 
 
 **Athena**
