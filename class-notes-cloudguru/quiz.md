@@ -220,6 +220,9 @@ Athena is an interactive query service that makes it easy to analyze data in Ama
 **Trusted Advisor**
 Trusted Advisor helps you to reduce cost, increase performance, and improve security by optimizing your AWS environment.
 It also provides real time guidance to help you provision your resources following AWS best practices.
+### AWS Trusted Advisor analyzes your AWS environment and provides best practice recommendations in these five categories: ###
+- Cost Optimization, Performance, Fault Tolerance, Security, and Service Limits (CPFSS)
+
 
 **Inspector**
 Amazon Inspector is an automated security assessment service that helps improve the security and compliance of applications deployed on AWS. Amazon Inspector automatically assesses applications for vulnerabilities or deviations from best practices.
@@ -280,10 +283,6 @@ In an enterprise identity federation, you can authenticate users in your organiz
 ### Which of the following AWS services encrypts data at rest by default? ###
 - AWS Storage Gateway
 - Amazon Glacier
-
-
-### AWS Trusted Advisor analyzes your AWS environment and provides best practice recommendations in these five categories: ###
-- Cost Optimization, Performance, Fault Tolerance, Security, and Service Limits (CPFSS)
 
 
 **> http://169.254.169.254/latest/meta-data/ is the URL that you can use to retrieve the Instance Metadata of your EC2 instance, including the public-hostname, public-ipv4, public-keys et cetera. <**
