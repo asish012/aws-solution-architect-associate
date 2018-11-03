@@ -282,6 +282,7 @@ In an enterprise identity federation, you can authenticate users in your organiz
 - Low Latency & High Throughput
 - Reduced Redundancy Storage (RRS)
 
+
 ### Which of the following AWS services encrypts data at rest by default? ###
 - AWS Storage Gateway
 - Amazon Glacier
