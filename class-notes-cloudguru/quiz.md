@@ -27,6 +27,21 @@
 *> S3 is an "object storage" <*
 *> EFS is a "file storage"   <*
 
+**S3 PUT/PUTS/DELETE request rate**
+- Amazon S3 automatically scales to high request rates. For example, your application can achieve at least 3500 PUT/POST/DELETE and 5500 GET requests _per second per prefix_ in a bucket. There are no limits to the number of prefixes in a bucket.
+
+**Possible Event Notifications available for S3 buckets**
+- SNS
+- SQS
+- Lambda
+
+### Amazon S3 Standard - Infrequent Access (Standard - IA) ###
+- Used for data that is accessed less frequently
+- Rapid access
+- Ideally for long-term storage, backup, and storage for disaster recovery
+- Low Latency & High Throughput
+- Reduced Redundancy Storage (RRS)
+
 
 **IAM-AMI**
 - IAM is not az specific, they are valid across entire account.
@@ -99,10 +114,6 @@
 - Enable Multi-AZ for the database.
 **Self managed Database server's availability**
 - Introduce another EC2 instance in another AZ with replication configured. Thus availability will be achieved.
-
-
-**S3 PUT/PUTS/DELETE request rate**
-- Amazon S3 automatically scales to high request rates. For example, your application can achieve at least 3500 PUT/POST/DELETE and 5500 GET requests _per second per prefix_ in a bucket. There are no limits to the number of prefixes in a bucket.
 
 
 **Amazon ECS Launch Types**
@@ -274,14 +285,6 @@ In an enterprise identity federation, you can authenticate users in your organiz
 - _SWF_: Amazon SWF helps to co-ordinate work across distributed application components. It helps developers build, run, and scale background jobs that have parallel or sequential steps. You can think of Amazon SWF as a fully-managed state tracker and task coordinator in the Cloud. Tasks represent invocation of various processing steps in an application which can be performed by executable code, web service calls, human actions and scripts.
 - If your app's steps take more than 500 milliseconds to complete, you need to track the state of processing, and you need to recover or retry if a task fails. There you need SWF.
 - _SQS_: Amazon SQS helps to set up a highly decoupled application in AWS.
-
-
-### Amazon S3 Standard - Infrequent Access (Standard - IA) ###
-- Used for data that is accessed less frequently
-- Rapid access
-- Ideally for long-term storage, backup, and storage for disaster recovery
-- Low Latency & High Throughput
-- Reduced Redundancy Storage (RRS)
 
 
 ### Which of the following AWS services encrypts data at rest by default? ###
