@@ -63,6 +63,17 @@
     - Monitor performance of aws resources.
     - Store logs including CloudTrail logs.
 
+**CloudWatch have ready to use metrics for these:**
+- CPU Utilization of an EC2 instance.
+- Disk Read activity of an EC2 instance.
+- Network packet out of an EC2 instance.
+**CloudWatch doesn't have ready to use metrics for these:**
+- Memory utilization
+- disk swap utilization
+- disk space utilization
+- page file utilization
+- log collection
+
 
 **Tagging**
 - Tags help you manage your instances, images, and other Amazon EC2 resources.
@@ -295,4 +306,20 @@ In an enterprise identity federation, you can authenticate users in your organiz
 **> http://169.254.169.254/latest/meta-data/ is the URL that you can use to retrieve the Instance Metadata of your EC2 instance, including the public-hostname, public-ipv4, public-keys et cetera. <**
 
 
+**Egress-only Internet Gateway**
+An Egress-only Internet gateway is a horizontally scaled, redundant, and highly available VPC component that *allows outbound communication over IPv6 from instances in your VPC to the Internet, and prevents the Internet from initiating an IPv6 connection with your instances*.
+
+### To enable outbound-only Internet communication over IPv4, use a NAT gateway instead. ###
+
+
+**You can attach an elastic network interface (ENI) to an EC2 instance in the following ways:**
+- When it's running (hot attach)
+- When it's stopped (warm attach)
+- When the instance is being launched (cold attach).
+
+
+**While selecting EC2 instances for your web application, consider:**
+- CPU utilization
+- I/O operations
+- minimum Memory requirements
 
