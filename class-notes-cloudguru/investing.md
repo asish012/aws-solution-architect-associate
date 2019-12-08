@@ -4,7 +4,7 @@
 - *- Meaning -*: "Does the business have meaning to you?
     - Do you want to own the whole business?
     - Do you understand the business?
-    * Invest in those business that you care about and are Proud as a owner.
+    * Invest in those business that you care about and are Proud as an owner.
         - 10-10 Rule
         - Understand the business:
             - Know what the company does, and how do they do it.
@@ -76,3 +76,6 @@
     - How is the political situation at this moment
     - Their revenue, expenses, debt, etc
     - ...
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbOTI2Nzk1NDU4XX0=
+-->
