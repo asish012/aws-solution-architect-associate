@@ -35,7 +35,7 @@ CORS-required response headers:
 
 # AutoScaling #
 Auto Scaling selects an instance to terminate as follows:
-- Terminates instance from AZ with the most instances and al least one instance that is not protected from scale in.
+- Terminates instance from AZ with the most instances and at least one instance that is not protected from scale in.
 - Terminates instance from AZ with the oldest launch configuration.
 
 ![Auto Scaling Lifecycle Stages](img/autoscaling-lifecycle.png)
@@ -121,3 +121,9 @@ How to enable instances in your private subnet to communicate with the Internet?
 * NOTE: You can not route traffic to a NAT gateway through a VPC peering connection, a VPN connection, or AWS Direct Connect.
 
 * NOTE: You can not grant a user permission to perform specific API operations on the NAT gateway. Once given, given the full permission.
+
+# Elastic BeanStalk #
+Elastic BeanStalk is used to deploy and manage application on AWS.
+
+# CloudFormation - Drift detection #
+Detects changes made to AWS resources outside cloudformation templates.
